@@ -1,0 +1,133 @@
+*{
+    margin: 0;
+    padding: 0;
+    color: black;
+    text-decoration: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body{
+    background-color: #ffffff;
+}
+/*NAVBAR*/
+#navbar{
+    background-color: #f7a64a;
+    list-style-type: none;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+#navbar li{
+    float: left;
+}
+#navbar li a{
+    display: block;
+    padding: 1rem 2rem;
+    text-align: center;
+    background-color: #f7a64a;
+    color: white;
+    font-size: 1.2rem;
+}
+#navbar li a:hover{
+    background-color: #ff941a;
+    color: black;
+}
+#navbar .navbar-right{
+    float: right;
+}
+/*TITULO*/
+#titulo{
+    text-align: center;
+    padding: 5rem 2rem;
+    margin: 5rem 0;
+    font-size: 6rem;
+}
+
+/*CUERPO*/
+#cuerpo{
+    background-color: #ffffff;
+    margin: 2rem 5rem;
+    border-radius: 0.5rem;
+    padding: 2rem;
+
+
+}
+#mision-vision{
+    background-color: #e4e4e4;
+}
+#contenido{
+    background-color: #e4e4e4;
+    margin: 2rem 5rem;
+    border-radius: 0.5rem;
+    padding: 2rem;
+}
+/*DESCIPCION*/
+#Descripcion{
+    display: flex;
+    align-items: center;
+}
+#Descripcion img{
+    border-radius: 50% 0 50% 0%;
+}
+#Descripcion p{
+    padding: 2rem;
+    font-size: 2rem;
+}
+/*MISION*/
+#mision{
+    margin-top: 8rem;
+}
+#mision h3{
+    display: block;
+    text-align: center;
+    font-size: 3rem;
+}
+.mision_content{
+    display: flex;
+    align-items: center;
+}
+.mision_content p{
+    padding: 2rem;
+    font-size: 2rem;
+}
+#mision img{
+    border-radius: 2rem 1rem;
+}
+/*VISION*/
+#vision{
+    
+    margin: 8rem 0;
+}
+#vision h3{
+    display: block;
+    text-align: center;
+    font-size: 3rem;
+}
+
+#vision p{
+    display: block;
+}
+#vision p img{
+    float: left;
+}
+.vision_content{
+    display: flex;
+    align-items: center;
+}
+.vision_content p{
+    padding: 2rem;
+    font-size: 2rem;
+}
+#vision img{
+    border-radius: 2rem 1rem;
+}
+/*FOOTER*/
+footer{
+    background-color: #f7a64a;
+    bottom: 0;
+    width: 100%;
+    overflow: hidden;
+}
+footer p{
+    text-align: center;
+}

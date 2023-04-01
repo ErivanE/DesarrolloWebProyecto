@@ -1,0 +1,53 @@
+.container{
+    width: auto;
+    height: auto;
+    margin: 10% 2rem;
+    display: grid;
+    background-color: white;
+}
+.tarjeta{
+    width: 100%;
+    height: 250px;
+    display: flex;
+    border-radius: 0 0 1rem 0;
+    background-color: rgb(252, 242, 222);
+    margin-bottom: 2rem;
+}
+.contenido{
+    padding: 2rem;
+}
+.contenido a{
+    float: right;
+    padding: 1rem;
+    font-size: 1.5rem;
+    background-color: rgb(255, 194, 102);
+}
+.descripcion{
+}
+.desc{
+    text-align: justify;
+    padding: 1rem;
+}
+.precio{
+    text-align: right;
+}
+.precio h2{
+    color: red;
+    font-size: 3rem;
+}
+.fav{
+    width: 50px;
+    height: 50px;
+}
+.boton{
+    width: auto;
+    float: right;
+    padding: 0rem;
+    
+    font-size: 1rem;
+    color: black;
+    background-color: aquamarine;
+}
+.boton img{
+    float: right;
+}
