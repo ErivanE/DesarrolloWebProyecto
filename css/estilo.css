@@ -6,51 +6,74 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 body{
-    background-color: #ffffff;
+    background-color: black;
+}
+/*NAV-LOGIN*/
+.login{
+    width: 100%;
+    height: 2.5rem;
+    list-style: none;
+    text-align: end;
+    padding-top: 2.5rem;
+}
+.login li{
+    display: inline;
+}
+.login li a{
+    color: rgb(184, 184, 184);
+    font-size: 1.5rem;
+    padding: 1rem;
+}
+.login li a:hover{
+    color: white;
+}
+/*TITULO*/
+.titulo{
+    text-align: left;
+    padding: 15rem 2.5rem;
+    font-size: 6rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    letter-spacing: 0rem;
+    color: white;
+}
+.naranjita{
+    color: #ff8800;
+    -webkit-text-stroke: 1px black;
+    padding: 0;
+    margin: 0;
+}
+.fondo-titulo{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.514), #ff8800) ,url("../img/fondo.jpg");
+    
 }
 /*NAVBAR*/
 #navbar{
-    background-color: #f7a64a;
-    list-style-type: none;
-    overflow: hidden;
-    position: fixed;
-    top: 0;
     width: 100%;
+    height: 5rem;
+    background-color: #ff8800;
+    list-style: none;
+    text-align: center;
 }
-#navbar li{
-    float: left;
+#navbar ul li{
+    font-size: 1.8rem;
+    display: inline;
+    margin-top: 5px;
 }
 #navbar li a{
-    display: block;
-    padding: 1rem 2rem;
-    text-align: center;
-    background-color: #f7a64a;
+    padding: 1rem;
+    font-size: 2.5rem;
     color: white;
-    font-size: 1.2rem;
 }
 #navbar li a:hover{
-    background-color: #ff941a;
-    color: black;
+    color: rgb(27, 27, 27);
+    
 }
-#navbar .navbar-right{
-    float: right;
-}
-/*TITULO*/
-#titulo{
-    text-align: center;
-    padding: 5rem 2rem;
-    margin: 5rem 0;
-    font-size: 6rem;
-}
-
 /*CUERPO*/
 #cuerpo{
-    background-color: #ffffff;
+    background-color: linear-gradient(#f7a64a,white);
     margin: 2rem 5rem;
     border-radius: 0.5rem;
     padding: 2rem;
-
-
 }
 #mision-vision{
     background-color: #e4e4e4;
@@ -67,31 +90,33 @@ body{
     align-items: center;
 }
 #Descripcion img{
+    width: 600px;
+    height: 500px;
     border-radius: 50% 0 50% 0%;
 }
 #Descripcion p{
     padding: 2rem;
     font-size: 2rem;
+    text-align: justify;
+    color: white;
 }
 /*MISION*/
 #mision{
     margin-top: 8rem;
+    padding-right: 2rem;
 }
 #mision h3{
     display: block;
     text-align: center;
     font-size: 3rem;
 }
-.mision_content{
+.mision-vision_content{
     display: flex;
     align-items: center;
 }
-.mision_content p{
-    padding: 2rem;
-    font-size: 2rem;
-}
 #mision img{
     border-radius: 2rem 1rem;
+    padding-left: 2rem;
 }
 /*VISION*/
 #vision{
@@ -110,24 +135,30 @@ body{
 #vision p img{
     float: left;
 }
-.vision_content{
-    display: flex;
-    align-items: center;
-}
-.vision_content p{
+.mision-vision{
     padding: 2rem;
     font-size: 2rem;
+    text-align: justify;
 }
 #vision img{
-    border-radius: 2rem 1rem;
+    padding-right: 2rem;
 }
 /*FOOTER*/
-footer{
-    background-color: #f7a64a;
-    bottom: 0;
-    width: 100%;
-    overflow: hidden;
+.social-media{
+    display: inline;
+    padding-bottom: 2rem;
 }
-footer p{
-    text-align: center;
+.blanco{
+    color: white;
+    text-align: justify;
+    padding: 2rem;
+}
+.social-media img{
+    width: 50px;
+    height: 50px;
+    margin: 0.5rem 5rem;
+}
+.otroNaranjita{
+    background-color: #ff8800;
+    border-radius:  0rem 4rem 0rem;
 }
