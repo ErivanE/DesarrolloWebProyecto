@@ -11,7 +11,7 @@ body{
 /*NAV-LOGIN*/
 .login{
     width: 100%;
-    height: 2.5rem;
+    height: 0rem;
     list-style: none;
     text-align: end;
     padding-top: 2.5rem;
@@ -46,28 +46,7 @@ body{
     background-image: linear-gradient(rgba(0, 0, 0, 0.514), #ff8800) ,url("../img/fondo.jpg");
     
 }
-/*NAVBAR*/
-#navbar{
-    width: 100%;
-    height: 5rem;
-    background-color: #ff8800;
-    list-style: none;
-    text-align: center;
-}
-#navbar ul li{
-    font-size: 1.8rem;
-    display: inline;
-    margin-top: 5px;
-}
-#navbar li a{
-    padding: 1rem;
-    font-size: 2.5rem;
-    color: white;
-}
-#navbar li a:hover{
-    color: rgb(27, 27, 27);
-    
-}
+
 /*CUERPO*/
 #cuerpo{
     background-color: linear-gradient(#f7a64a,white);
@@ -110,6 +89,7 @@ body{
     text-align: center;
     font-size: 3rem;
 }
+
 .mision-vision_content{
     display: flex;
     align-items: center;
@@ -162,3 +142,5 @@ body{
     background-color: #ff8800;
     border-radius:  0rem 4rem 0rem;
 }
+
+
