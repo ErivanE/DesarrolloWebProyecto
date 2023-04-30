@@ -1,0 +1,10 @@
+.main{
+    margin-top: 2rem;
+    align-items: center;
+}
+.iframe{
+    margin: 10% 30%;
+    width: 600px;
+    height: 450px;
+    border: 2px solid #f7a64a;
+}

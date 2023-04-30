@@ -11,7 +11,7 @@
 </head>
 <body>
     <!--NAVBAR-->
-    <nav id="navbar">
+    <nav class="navbar general">
         <ul>
             <li><a href="../Index.html">Inicio</a></li>
             <li><a href="html/productos.html">Productos</a></li>
@@ -19,37 +19,33 @@
         </ul>
     </nav>
 
-    <div id="contenedor">
+    <div id="contenedor" class="fondo-titulo-alterado">
         <div id="registro">
-            <form action="#">
+            <form action="../">
                 <title></title>
                 <label for="nombre">Nombre: </label>
-                <input placeholder="Nombre:" type="text">
+                <input placeholder="Nombre:" type="text" name="nombre" id="nombre">
                 <br><br>
     
                 <label for="correo">Correo: </label>
-                <input type="text">
+                <input type="text" name="correo" id="correo">
                 <br><br>
 
                 <label for="direccion">Direccion: </label>
-                <input type="text"> 
+                <input type="text" name="correo" id="correo"> 
                 <br><br>
 
                 <label for="cp">CP: </label>
-                <input type="text"> 
+                <input type="text" name="cp" id="cp"> 
                 <br><br>
     
                 <label for="password">Contraseña: </label>
-                <input type="password"> 
+                <input type="password" name="contrasena" id="contrasena"> 
                 <br><br>
                 <br>
 
                 <input id="enviar" type="submit" value="Registrarse">
             </form>
-        </div>
-
-        <div>
-            <img src="../img/bio.jpg" alt="">
         </div>
     </div>
     <footer>
@@ -62,7 +58,6 @@
                         <li><a href="#"><img src="https://cdn.icon-icons.com/icons2/1753/PNG/96/iconfinder-social-media-applications-3instagram-4102579_113804.png" alt=""></a></li>
                         <li><a href="#"><img src="https://cdn.icon-icons.com/icons2/836/PNG/96/Facebook_icon-icons.com_66805.png" alt=""></a></li>
                         <li><a href="#"><img src="https://cdn.icon-icons.com/icons2/1211/PNG/96/1491579583-yumminkysocialmedia02_83111.png" alt=""></a></li>
-                    
                     </ul>
                 </div>
                 <p class="blanco">
@@ -75,9 +70,5 @@
             </div>
         </footer>
     </footer>
-    
-
-    <!--FORMULARIO REGISTRO-->
-    
 </body>
 </html>

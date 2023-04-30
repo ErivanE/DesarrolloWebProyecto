@@ -43,13 +43,15 @@ body{
     margin: 0;
 }
 .fondo-titulo{
-    background-image: linear-gradient(rgba(0, 0, 0, 0.514), #ff8800) ,url("../img/fondo.jpg");
-    
+    background-image: linear-gradient(rgba(0, 0, 0, 0.514), #ff8800) ,url("../img/fondo.jpg"); 
+}
+.fondo-titulo-alterado{
+    background-image: linear-gradient(#ff88001f, rgba(0, 0, 0, 0.514)) ,url("../img/fondo.jpg");  
 }
 
 /*CUERPO*/
 #cuerpo{
-    background-color: linear-gradient(#f7a64a,white);
+    background-color: linear-gradient(#f69c35,white);
     margin: 2rem 5rem;
     border-radius: 0.5rem;
     padding: 2rem;
@@ -125,6 +127,7 @@ body{
 }
 /*FOOTER*/
 .social-media{
+    width: 100%;
     display: inline;
     padding-bottom: 2rem;
 }

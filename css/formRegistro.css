@@ -4,9 +4,12 @@
     align-items: center;
 }
 #registro{
-    margin: 0% 5rem;
+    width: 100%;
+    background-color: #000000;
+    margin: 5rem auto;
     padding: 1rem;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.514), #271603) ,url("../img/oxido.jpeg");
+    border: 1px solid purple;
+    box-shadow: -.5rem -.5rem purple;
     border-radius: 0.5rem;
     width: 25%;
 }
@@ -41,8 +44,7 @@
     cursor: pointer;
 }
 #contenedor img{
-    background-color: #af7430;
+    background-color: #000000;
     margin: auto;
-    margin-top: 2rem;
-    
+    margin-left: 8rem;
 }
