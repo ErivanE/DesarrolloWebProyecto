@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/estilo.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/estiloAdmin.css">
+    <title>Document</title>
+</head>
+<body >
+    <nav class="navbar general">
+        <ul>
+          <li><a href="#">Usuarios</a></li>
+          <li><a href="#">Productos</a></li>
+        </ul>
+    </nav>
+    <div class="fondo-titulo-alterado">
+        <!--form agregar Producto-->
+        <div id="agregarProducto">
+            <form action="" method="post">
+                <title>Agregar Producto</title>
+    
+                <label for="titulo">Titulo: </label>
+                <input type="text" name="titulo" id="titulo">
+    
+                <label for="descripcion">Descripcion: </label>
+                <textarea name="descripcion" id="descripcion" cols="50" rows="10"></textarea>
+    
+                <label for="precio">Precio: </label>
+                <input type="number" name="precio" id="precio">
+    
+                <label for="imagen">Foto: </label>
+                <input type="url" name="imagenUrl" id="imagenUrl">
+    
+                <input type="submit">
+            </form>
+        </div>
+        <!--Form de busqueda-->
+        <nav>
+            <form action="" method="post">
+                <title>Busqueda</title>
+    
+                <input type="text" placeholder="Buscar" name="buscar" id="buscar">
+                <input type="submit">
+    
+                <label for="idCB">Id</label>
+                <input type="checkbox" name="idCB" id="idCB">
+    
+                <label for="tituloCB">Titulo</label>
+                <input type="checkbox" name="titluloCB" id="tituloCB">
+    
+                <label for="descripcionCB">Descripcion</label>
+                <input type="checkbox" name="descripcionCB" id="descripcionCB">
+    
+                <label for="precioCB">Precio</label>
+                <input type="checkbox" name="precioCB" id="precioCB">
+    
+            </form>
+        </nav>
+        <!--Table Ver producto-->
+        <div>
+            <table>
+                <tr>
+                    <th>Id</th>
+                    <th>Titulo</th>
+                    <th>Descripcion</th>
+                    <th>Precio</th>
+                    <th>URL Image</th>
+                    <th>Opciones</th>
+                </tr>
+                <tr> <!--Esto se agrega con un while. consulta desde php-->
+                    <td>1</td>
+                    <td>ejemplo</td>
+                    <td>ejemplo</td>
+                    <td>ejemplo</td>
+                    <td>ejemplo</td>
+                    <td>ejemplo</td>
+                    <td>ejemplo</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    
+    
+</body>
+</html>

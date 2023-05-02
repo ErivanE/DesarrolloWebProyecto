@@ -1,0 +1,21 @@
+*{
+    color: rgb(255, 255, 255);
+}
+#agregarProducto{
+    background-color: rgba(52, 20, 52, 0.632);
+    width: 100%;
+    margin: 0rem auto;
+    border: 1px solid white;
+}
+#agregarProducto form{
+    margin: 2rem 5rem;
+    background-color: aqua;
+}
+#agregarProducto label, input{
+    display: block;
+    padding: 1rem;
+}
+#agregarProducto input, textarea{
+    color: black;
+    font-size: 1rem;
+}

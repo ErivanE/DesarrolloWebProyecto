@@ -39,7 +39,7 @@
     background-color: #ffffff;
 }
 #enviar:hover{
-    background-color: #af7430;
+    background-color: purple;
     color: white;
     cursor: pointer;
 }
@@ -47,4 +47,14 @@
     background-color: #000000;
     margin: auto;
     margin-left: 8rem;
+}
+.admin p,a{
+    color: rgb(247, 247, 247);
+    font-size: 0.75rem;
+}
+.admin a{
+    color: rgb(255, 0, 255);
+}
+.admin a:hover{
+    color: rgb(255, 130, 255);
 }
