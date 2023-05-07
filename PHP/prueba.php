@@ -1,3 +1,6 @@
+<?php 
+    include 'conexion.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,8 +23,6 @@
         <!--form agregar Producto-->
         <div class="caja">
             <form action="../PHP/registrarProducto.php" method="post">
-                <title>Agregar Producto</title>
-                
                 <div class="cont">
                     <h2 class="cont-titulo">Agregar Producto</h2>
                     <label for="titulo" class="cont-label">Titulo:  </label>
@@ -48,38 +49,47 @@
         </div>
         <!--Form de busqueda-->
         <div class="caja">
-            <form action="" method="get">
+            <form action="" method="post">
                 <div class="cont">
-                    <h2>Buscar Producto</h2>
-                    
+                    <h2 class="cont-titulo">Buscar Producto</h2>
+
                     <input type="text" placeholder="Buscar" name="buscar" id="buscar" class="cont-input">
                     <input type="submit" value="Buscar" class="cont-boton">
+                </div>
             </form>
-
         </div>
         <!--Table Ver producto-->
         <div class="caja">
-            <table>
-                <thead>
-                    <th>Id</th>
-                    <th>Titulo</th>
-                    <th>Descripcion</th>
-                    <th>Precio</th>
-                    <th>URL Image</th>
-                    <th>Opciones</th>
-                </thead>
-                <tbody>
-                    <tr> <!--Esto se agrega con un while. consulta desde php-->
-                        <td>1</td>
-                        <td>ejemplo</td>
-                        <td>ejemplo</td>
-                        <td>ejemplo</td>
-                        <td>ejemplo</td>
-                        <td>ejemplo</td>
-                        <td>ejemplo</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="cont">
+                <h2 class="cont-titulo">Productos</h2>
+                <table>
+                    <thead>
+                        <th>Id</th>
+                        <th>Titulo</th>
+                        <th>Precio</th>
+                        <th>Stock</th>
+                        <th>Descripcion</th>
+                    </thead>
+                    <tbody>
+                        <?php
+                            $query = "SELECT id, titulo, precio, stock, descripcion FROM productos";
+                            $result = $con -> query($query);
+    
+                            if($result -> num_rows > 0){
+                                while($row = $result -> fetch_assoc()){
+                                    echo "<tr>";
+                                        echo "<td>".$row['id']."</td>";
+                                        echo "<td>".$row['titulo']."</td>";
+                                        echo "<td>".$row['precio']."</td>";
+                                        echo "<td>".$row['stock']."</td>";
+                                        echo "<td>".$row['descripcion']."</td>";
+                                    echo "</tr>";
+                                }
+                            }
+                        ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>  
 </body>

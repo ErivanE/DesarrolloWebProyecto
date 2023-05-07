@@ -1,21 +1,38 @@
 *{
-    color: rgb(255, 255, 255);
 }
-#agregarProducto{
-    background-color: rgba(52, 20, 52, 0.632);
+.caja{
     width: 100%;
     margin: 0rem auto;
-    border: 1px solid white;
+    padding-top: 1rem;
 }
-#agregarProducto form{
-    margin: 2rem 5rem;
-    background-color: aqua;
+.caja form, .caja table{
+    width: 50%;
+    margin: 0rem auto;
+    margin-bottom: 2rem;
+    padding: 1rem 2rem;
+    background-color: black;
+    border-radius: 0.5rem;
+    box-shadow:  inset .5rem .5rem purple;
 }
-#agregarProducto label, input{
+.cont{
+    width: 100%;
+}
+.cont-titulo{
+    color: white;
+}
+.cont-label{
+    width: 20%;
+    color: white;
+    margin-right: 2rem;
     display: block;
-    padding: 1rem;
 }
-#agregarProducto input, textarea{
+.cont-input{
+    width: 100%;
     color: black;
-    font-size: 1rem;
+    padding: .5rem 0.2rem;
+}
+.cont-boton{
+    color: black;
+    padding:.5rem 1rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

@@ -8,7 +8,7 @@
     
 
     if($sql -> num_rows > 0){
-        header("location: ../BD/InicioAdmin.php");
+        header("location: ../html/prueba.html");
     }else{
         echo "no";
     }
