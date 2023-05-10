@@ -1,11 +1,14 @@
+<?php
+    include '../PHP/conexion.php'
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/estilo.css">
-    <link rel="stylesheet" href="/css/productos.css">
+    <link rel="stylesheet" href="../css/estilo.css">
+    <link rel="stylesheet" href="../css/productos.css">
     <title>Productos</title>
 </head>
 <body>
@@ -19,6 +22,7 @@
 
     
     <div class="container">
+        </div>
         <div class="tarjeta">
             <img src="http://placekitten.com/250/250" alt="">
             <div class="contenido">

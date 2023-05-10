@@ -8,7 +8,7 @@
     
 
     if($sql -> num_rows > 0){
-        header("location: ../html/prueba.html");
+        header("location: ../PHP/productos.php");
     }else{
         echo "no";
     }

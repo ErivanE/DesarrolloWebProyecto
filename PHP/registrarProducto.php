@@ -13,7 +13,7 @@
     $sql = mysqli_query($con, $query);
     
     if($sql){
-        header("location: ../html/prueba.html");
+        header("location: ../php/productos.php");
     }else{
         echo "producto no agregado";
     }
