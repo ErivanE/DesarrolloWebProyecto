@@ -1,18 +1,19 @@
+<?php include '../PHP/conexion.php'?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../kspgames/css/estilo.css">
-    <link rel="stylesheet" href="../kspgames/css/navbar.css">
+    <link rel="stylesheet" href="../css/estilo.css">
+    <link rel="stylesheet" href="../css/navbar.css">
     <title>KSP Games</title>
 </head>
 <body id="index">
     <div class="fondo-titulo">
         <ul class="login">
-            <li><a href="html/login.html">Iniciar Sesion</a></li>
-            <li><a href="html/register.html">Registrarse</a></li>
+            <li><a href="carrito.php">Carrito</a></li>
+            <li><a href="#">Cuenta</a></li>
         </ul>
         <!--TITULO-->
         <h1 class="titulo"><span class="titulo naranjita">KSP</span>Games</h1>

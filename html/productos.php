@@ -70,6 +70,7 @@
         <li><a href="../Index.html">Inicio</a></li>
         <li><a href="../html/productos.html">Productos</a></li>
         <li><a href="../html/ubicacion.html">Ubicacion</a></li>
+        <li><a href="../html/carrito.php">Carrito</a></li>
       </ul>
     </nav>
 
@@ -84,7 +85,7 @@
                     echo     "<img src='../img/".$row["url_img"]."' alt='img' width='250' height='250'>";
                     echo     "<div class='tarjeta-icons'>";
                     echo        "<a href='#'><img src='../img/guardarIcono.png'  width='50' height='50' alt=''></a>";
-                    echo        "<a href='#'><img src='https://cdn.icon-icons.com/icons2/606/PNG/96/shopping-cart-add-button_icon-icons.com_56132.png'  width='50' height='50' alt='' class=''></a>";
+                    echo        "<a href='../PHP/agregarCarrito.php?var=".$row["id"]."'><img src='https://cdn.icon-icons.com/icons2/606/PNG/96/shopping-cart-add-button_icon-icons.com_56132.png'  width='50' height='50' alt='' class=''></a>";
                     echo     "</div>";
                     echo     "<div class='cont'>";
                     echo        "<p class='titulo'>".$row["titulo"]."</p>";
@@ -95,151 +96,27 @@
                 }
             }
         ?>
-        <div class="tarjeta">
-            <img src="http://placekitten.com/250/250" alt="img">
-            <div class="tarjeta-icons">
-                <a href="" style="background-color: white; border-radius: 50%;"><img src="../img/guardarIcono.png"  width="50" height="50" alt="" class=""></a>
-                <a href="" style=" border-radius: 20%;"><img src="https://cdn.icon-icons.com/icons2/606/PNG/96/shopping-cart-add-button_icon-icons.com_56132.png"  width="50" height="50" alt="" class=""></a>
-            </div>
-            <div class="cont">
-                <p class="titulo">Titulo</p>
-                <p class="precio">Precio</p>
-            </div>
-        </div>
-        <div class="tarjeta">
-            <img src="http://placekitten.com/250/250" alt="img">
-            <div style="margin-top: 0px; display: flex; justify-content: space-between;">
-                <a href="" style="background-color: white; border-radius: 50%;"><img src="../img/guardarIcono.png"  width="50" height="50" alt="" class=""></a>
-                <a href="" style=" border-radius: 20%;"><img src="https://cdn.icon-icons.com/icons2/606/PNG/96/shopping-cart-add-button_icon-icons.com_56132.png"  width="50" height="50" alt="" class=""></a>
-            </div>
-            <div class="cont">
-                <p class="titulo">Titulo</p>
-                <p class="precio">Precio</p>
-            </div>
-        </div>
-        <div class="tarjeta">
-            <img src="http://placekitten.com/250/250" alt="img">
-            <div style="margin-top: 0px; display: flex; justify-content: space-between;">
-                <a href="" style="background-color: white; border-radius: 50%;"><img src="../img/guardarIcono.png"  width="50" height="50" alt="" class=""></a>
-                <a href="" style=" border-radius: 20%;"><img src="https://cdn.icon-icons.com/icons2/606/PNG/96/shopping-cart-add-button_icon-icons.com_56132.png"  width="50" height="50" alt="" class=""></a>
-            </div>
-            <div class="cont">
-                <p class="titulo">Titulo</p>
-                <p class="precio">Precio</p>
-            </div>
-        </div>
-        <div class="tarjeta">
-            <img src="http://placekitten.com/250/250" alt="img">
-            <div style="margin-top: 0px; display: flex; justify-content: space-between;">
-                <a href="" style="background-color: white; border-radius: 50%;"><img src="../img/guardarIcono.png"  width="50" height="50" alt="" class=""></a>
-                <a href="" style=" border-radius: 20%;"><img src="https://cdn.icon-icons.com/icons2/606/PNG/96/shopping-cart-add-button_icon-icons.com_56132.png"  width="50" height="50" alt="" class=""></a>
-            </div>
-            <div class="cont">
-                <p class="titulo">Titulo</p>
-                <p class="precio">Precio</p>
-            </div>
-        </div>
-        <div class="tarjeta">
-            <img src="http://placekitten.com/250/250" alt="img">
-            <div style="margin-top: 0px; display: flex; justify-content: space-between;">
-                <a href="" style="background-color: white; border-radius: 50%;"><img src="../img/guardarIcono.png"  width="50" height="50" alt="" class=""></a>
-                <a href="" style=" border-radius: 20%;"><img src="https://cdn.icon-icons.com/icons2/606/PNG/96/shopping-cart-add-button_icon-icons.com_56132.png"  width="50" height="50" alt="" class=""></a>
-            </div>
-            <div class="cont">
-                <p class="titulo">Titulo</p>
-                <p class="precio">Precio</p>
-            </div>
-        </div>
-        <div class="tarjeta">
-            <img src="http://placekitten.com/250/250" alt="img">
-            <div style="margin-top: 0px; display: flex; justify-content: space-between;">
-                <a href="" style="background-color: white; border-radius: 50%;"><img src="../img/guardarIcono.png"  width="50" height="50" alt="" class=""></a>
-                <a href="" style=" border-radius: 20%;"><img src="https://cdn.icon-icons.com/icons2/606/PNG/96/shopping-cart-add-button_icon-icons.com_56132.png"  width="50" height="50" alt="" class=""></a>
-            </div>
-            <div class="cont">
-                <p class="titulo">Titulo</p>
-                <p class="precio">Precio</p>
-            </div>
-        </div>
-        <div class="tarjeta">
-            <img src="http://placekitten.com/250/250" alt="img">
-            <div style="margin-top: 0px; display: flex; justify-content: space-between;">
-                <a href="" style="background-color: white; border-radius: 50%;"><img src="../img/guardarIcono.png"  width="50" height="50" alt="" class=""></a>
-                <a href="" style=" border-radius: 20%;"><img src="https://cdn.icon-icons.com/icons2/606/PNG/96/shopping-cart-add-button_icon-icons.com_56132.png"  width="50" height="50" alt="" class=""></a>
-            </div>
-            <div class="cont">
-                <p class="titulo">Titulo</p>
-                <p class="precio">Precio</p>
-            </div>
-        </div>
-        <div class="tarjeta">
-            <img src="http://placekitten.com/250/250" alt="img">
-            <div style="margin-top: 0px; display: flex; justify-content: space-between;">
-                <a href="" style="background-color: white; border-radius: 50%;"><img src="../img/guardarIcono.png"  width="50" height="50" alt="" class=""></a>
-                <a href="" style=" border-radius: 20%;"><img src="https://cdn.icon-icons.com/icons2/606/PNG/96/shopping-cart-add-button_icon-icons.com_56132.png"  width="50" height="50" alt="" class=""></a>
-            </div>
-            <div class="cont">
-                <p class="titulo">Titulo</p>
-                <p class="precio">Precio</p>
-            </div>
-        </div>
-        
     </div>
-
-    
-
-    
-    <!-- <div class="container">
-        </div>
-        <div class="tarjeta">
-            <img src="http://placekitten.com/250/250" alt="">
-            <div class="contenido">
-                <div class="titular">
-                    <h2>titulo del producto</h2>
-                </div>
-                <div class="desc">
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae beatae, aspernatur, velit consectetur facere nesciunt perferendis accusantium quasi vero ab illum quam error ipsum consequatur quis minus eligendi voluptatem ut?</p>
-                </div>
-                <div class="precio">
-                    <h2>$999</h2>
-                </div>
-                <a href="#">Comprar</a>
+    <footer>
+        <div class="footer-contain mision-vision_content">
+            <div class="social-media">
+                <h2 class="blanco">Encuentranos en: </h2>
+                <ul>
+                    <li><a href="#"><img src="https://cdn.icon-icons.com/icons2/1293/PNG/96/2363208-app-chat-discord-game-gamer-social_85471.png" alt=""></a></li>
+                    <li><a href="#"><img src="https://cdn.icon-icons.com/icons2/1753/PNG/96/iconfinder-social-media-applications-3instagram-4102579_113804.png" alt=""></a></li>
+                    <li><a href="#"><img src="https://cdn.icon-icons.com/icons2/836/PNG/96/Facebook_icon-icons.com_66805.png" alt=""></a></li>
+                    <li><a href="#"><img src="https://cdn.icon-icons.com/icons2/1211/PNG/96/1491579583-yumminkysocialmedia02_83111.png" alt=""></a></li>
+                
+                </ul>
             </div>
-            <img class="fav" src="http://placekitten.com/50/50" alt="">
+            <p class="blanco">
+                Estamos ubicados en Guadalajara, Jalisco
+                <br>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit unde quis veritatis provident ullam explicabo at doloremque minus, adipisci mollitia nemo. Necessitatibus error voluptatibus ex reprehenderit officia beatae? Voluptate, tempora!
+                Nisi harum maxime eius veritatis suscipit dolores aspernatur dolore porro ea deserunt culpa id expedita commodi omnis ab officiis saepe, dolorem quos iusto vitae molestiae? Quasi id dolor sunt error.
+                Veritatis iusto nam dolorem deserunt iste qui voluptatibus ex, temporibus quia inventore quidem porro maxime, doloremque vel, consectetur sed praesentium cupiditate minima neque nulla facere voluptate. Quas sapiente id necessitatibus.
+            </p>
         </div>
-        <div class="tarjeta">
-            <img src="http://placekitten.com/250/250" alt="">
-            <div class="contenido">
-                <div class="titular">
-                    <h2>titulo del producto</h2>
-                </div>
-                <div class="desc">
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae beatae, aspernatur, velit consectetur facere nesciunt perferendis accusantium quasi vero ab illum quam error ipsum consequatur quis minus eligendi voluptatem ut?</p>
-                </div>
-                <div class="precio">
-                    <h2>$999</h2>
-                </div>
-                <a href="#">Comprar</a>
-            </div>
-            <img class="fav" src="http://placekitten.com/50/50" alt="">
-        </div>
-        <div class="tarjeta">
-            <img src="http://placekitten.com/250/250" alt="">
-            <div class="contenido">
-                <div class="titular">
-                    <h2>titulo del producto</h2>
-                </div>
-                <div class="desc">
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae beatae, aspernatur, velit consectetur facere nesciunt perferendis accusantium quasi vero ab illum quam error ipsum consequatur quis minus eligendi voluptatem ut?</p>
-                </div>
-                <div class="precio">
-                    <h2>$999</h2>
-                </div>
-                <a href="#">Comprar</a>
-            </div>
-            <img class="fav" src="http://placekitten.com/50/50" alt="">
-        </div>
-    </div> -->
-    
+    </footer>
 </body>
 </html>
