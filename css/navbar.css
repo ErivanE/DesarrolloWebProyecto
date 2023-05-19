@@ -29,4 +29,75 @@
 .general ul li a:hover{
     color: white;
 }
+/**/
+/**/
+*{
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.nav{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.7rem;
+    background-color: #14112E;
+}
+.nav-login-container{
+    display: flex;
+    align-items: center;
+}
+.nav-login-container img{
+    height: 50px;
+}
+.nav-login-item{
+    font-size: 1.2rem;
+    padding: 0.7rem;
+    text-decoration: none;
+    color: #8281A0;
+}
+.boton{
+    border-radius: 20px;
+    font-weight: 500;
+    color: rgb(197, 197, 197);
+    margin: 0rem 0.5rem;
+}
+.botonGris{
+    background-color: #393B61;
+}
+.botonGris:hover{
+    background-color: #44455f;
+}
+.botonAzul{
+    background-color: #3752ff;
+}
+.botonAzul:hover{
+    background-color: #4c64ff;
+}
+.nav-login-item:hover{
+    color: whitesmoke;
+}
+/*FOOTER*/
+.footer-container{
+    display: flex;
+    flex-flow: row nowrap;
+    background-color: black;
+    color: white;
+    padding: 2rem;
+    text-align: justify;
+}
+.footer-column ul{
+    list-style: none;
+}
+.footer-column li{
+    margin-top: 1rem;
+}
+.footer-column{
+    padding: 0rem 2rem;
+}
+.columna1{
+    width: 20%;
+}
+.columna2{
+    width: 80%;
+}
 
