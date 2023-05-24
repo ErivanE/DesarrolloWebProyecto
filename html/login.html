@@ -4,65 +4,97 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/estilo.css" />
     <link rel="stylesheet" href="../css/navbar.css">
-    <link rel="stylesheet" href="../css/formRegistro.css">
+    <link rel="stylesheet" href="../css/contacto.css">
+    <link rel="stylesheet" href="../css/login.css">
     <title>KSP Registrar</title>
   </head>
   <body>
     <!--NAVBAR-->
-    <nav class="navbar general">
-      <ul>
-        <li><a href="../Index.html">Inicio</a></li>
-        <li><a href="../html/productos.html">Productos</a></li>
-        <li><a href="../html/ubicacion.html">Ubicacion</a></li>
-      </ul>
+    <nav class="nav">
+      <div class="nav-login-container">
+          <img src="../img/icons/KSPGames.png" alt="kspLogo" >
+          <p class="nav-login-item">|</p>
+          <a href="../indexTemp.html" class="nav-login-item">Inicio</a>
+          <a href="../html/productos.php" class="nav-login-item">Productos</a>
+          <a href="../html/ubicacion.html" class="nav-login-item">Ubicacion</a>
+          <a href="../html/contacto.html" class="nav-login-item">Contacto</a>
+      </div>
+      <div class="nav-login-container">
+        <a href="#" class="nav-login-item boton botonGris">Iniciar Sesion</a>
+        <a href="../html/register.html" class="nav-login-item boton botonAzul">Registrarse</a>
+      </div>
     </nav>
 
-    <div id="contenedor" class="fondo-titulo-alterado">
-      <div id="registro">
-          <form action="../PHP/registrarUsuario.php" method="post">
-              <title></title>
-              
-              <label for="correo">Correo: </label>
-              <input type="text" name="correo" id="correo">
-              <br><br>
-
-              <label for="password">Contraseña: </label>
-              <input type="password" name="contrasena" id="contrasena"> 
-              <br><br>
-              <br>
-
-              <input id="enviar" type="submit" value="Iniciar Sesion" name="login">
-              
-              
-          </form>
-          <div class="admin">
-            <p>Entrar como <a href="../html/loginAdmin.html">admin</a></p>
-          </div>
+    <!--MAIN-->
+    <section id="login" class="agregados">
+      <div class="apartado">
+          <h2>Iniciar Sesion</h2>
       </div>
-  </div>
-  <footer>
-      <footer>
-          <div class="footer-contain mision-vision_content">
-              <div class="social-media">
-                  <h2 class="blanco">Encuentranos en: </h2>
-                  <ul>
-                      <li><a href="#"><img src="https://cdn.icon-icons.com/icons2/1293/PNG/96/2363208-app-chat-discord-game-gamer-social_85471.png" alt=""></a></li>
-                      <li><a href="#"><img src="https://cdn.icon-icons.com/icons2/1753/PNG/96/iconfinder-social-media-applications-3instagram-4102579_113804.png" alt=""></a></li>
-                      <li><a href="#"><img src="https://cdn.icon-icons.com/icons2/836/PNG/96/Facebook_icon-icons.com_66805.png" alt=""></a></li>
-                      <li><a href="#"><img src="https://cdn.icon-icons.com/icons2/1211/PNG/96/1491579583-yumminkysocialmedia02_83111.png" alt=""></a></li>
-                  </ul>
-              </div>
-              <p class="blanco">
-                  Estamos ubicados en Guadalajara, Jalisco
-                  <br>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit unde quis veritatis provident ullam explicabo at doloremque minus, adipisci mollitia nemo. Necessitatibus error voluptatibus ex reprehenderit officia beatae? Voluptate, tempora!
-                  Nisi harum maxime eius veritatis suscipit dolores aspernatur dolore porro ea deserunt culpa id expedita commodi omnis ab officiis saepe, dolorem quos iusto vitae molestiae? Quasi id dolor sunt error.
-                  Veritatis iusto nam dolorem deserunt iste qui voluptatibus ex, temporibus quia inventore quidem porro maxime, doloremque vel, consectetur sed praesentium cupiditate minima neque nulla facere voluptate. Quas sapiente id necessitatibus.
-              </p>
-          </div>
-      </footer>
+      <div class="form-contacto">
+          <form action="../PHP/" method="" >
+              <label for="correo">Correo</label>
+              <input type="email" name="correo" id="correo">
+              <label for="contra">Contraseña</label>
+              <input type="password" name="contra" id="contra">
+
+              <p id="adminLogin">Iniciar sesion como <span><a href="../html/loginAdmin.html">Admin</a></span></p>
+
+              <input type="submit" class="boton botonAzul botonForm" value="Enviar">
+          </form>
+      </div>
+  </section>
+  <!--FOOTER-->
+  <footer class="footer-container">
+    <div class="footer-column columna1">
+        <p>Encuentranos en:  </p>
+        <ul>
+            <li>
+                <a href="">
+                    <img src="../img/icons/facebookIcon.png" alt="Facebook">
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <img src="../img/icons/twitterIcon.png" alt="Twitter">
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <img src="../img/icons/instaIcon.png" alt="Instagram">
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <img src="../img/icons/discordIcon.png" alt="Discord">
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="footer-column columna2">
+        <h2>KSP Games</h2>
+        <p>
+            KSP Games es una pagina donde puedes comprar videojuegos en formato fisico, 
+            asi como tambien Consolas, controles, accesorios y Ediciones de coleccion
+        </p>
+        
+    </div>
+    <div class="footer-column columna2">
+        <h2>Mision</h2>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Corrupti in ipsum inventore, fugiat provident ex, possimus, 
+            aspernatur ut laboriosam nisi consequuntur et officia quaerat
+             id totam repellendus deleniti omnis numquam!
+            </p>
+        <h2>Vision</h2>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Assumenda repellendus odio officiis rem voluptatibus ipsa sapiente, 
+            error exercitationem quam doloremque distinctio quia porro, aut nesciunt 
+            aspernatur nihil omnis, quae praesentium.
+        </p>
+    </div>
   </footer>
   </body>
 </html>

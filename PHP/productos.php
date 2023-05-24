@@ -13,13 +13,26 @@
     <title>Inicio Admin</title>
 </head>
 <body >
-    <nav class="navbar general">
-        <ul>
-          <li><a href="../PHP/usuarios.php">Usuarios</a></li>
-          <li><a href="../PHP/productos.php">Productos</a></li>
-        </ul>
+    <!--NAVBAR-->
+    <nav class="nav">
+        <div class="nav-login-container">
+            <img src="../img/icons/KSPGames.png" alt="kspLogo">
+            <p class="nav-login-item">|</p>
+            <a href="#" class="nav-login-item">Inicio</a>
+            <a href="../html/productos.php" class="nav-login-item">Productos</a>
+            <a href="../PHP/usuarios.php" class="nav-login-item">Usuarios</a>
+            <a href="#" class="nav-login-item">Proveedores</a>
+        </div>
+        <div class="nav-login-container">
+            <a href="#" class="nav-login-item boton botonGris">Iniciar Sesion</a>
+            <a href="#" class="nav-login-item boton botonAzul">Registrarse</a>
+        </div>
     </nav>
-    <div class="fondo-titulo-alterado">
+    <!--MAIN-->
+    <div class="contenedorAdmin">
+        <div class="adminForm"></div>
+        <div class="adminTablas"></div>
+    </div>
         <!--form agregar Producto-->
         <div class="caja">
             <form action="../PHP/registrarProducto.php" method="post">

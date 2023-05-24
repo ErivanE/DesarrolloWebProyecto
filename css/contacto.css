@@ -1,43 +1,58 @@
-
-.titulo-principal{
+/*CONTACTO*/
+#contacto{
     width: 100%;
-    padding: 10rem 0rem;
+    padding: 0rem 0rem;
     background-image: 
         radial-gradient(farthest-side, 
             #14112ea2, 
             #14112eb8, 
             #14112ec5, 
             #14112E),
-        url("../img/bioColum.jpg");
+        url("../img/genshinBG2.jpg");
+    background-repeat: no-repeat;
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
-.titulo-principal h1{
-    color: #4048AB;
-    font-size: 1rem;
+.form-contacto{
+    width: 80%;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-start;
 }
-.titulo-principal p{
-    color: white;
-    font-size: 4rem;
-    font-weight: 700;
-    text-align: start;
+.form-contacto img{
+    width:  500px;
+    margin-left: -50px;
 }
-.parrafo{
+.form-contacto form{
     width: 60%;
+    display: flex;
+    flex-flow: column nowrap;
+    color: white;
 }
-.parrafo span{
-    color: #C44A3E;
+.form-contacto label, .form-contacto input{
+    font-size: 1.7rem;
 }
-.parrafo-img img{
-    border-radius: 50%;
+#contacto{
+    padding-bottom: 0;
+    margin-bottom: -2rem;
+
 }
-/*AGREGADOS*/
+.botonForm{
+    margin: 1rem 0rem;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    padding: 0.5rem 0;
+    font-family: 'Montserrat';
+    
+}
+
 .apartado{
     width: 100%;
 }
 .apartado h2{
-    padding: 3rem 3rem;
+    padding: 1rem 3rem;
 }
 .agregados{
     padding: 2.5rem 0rem;
@@ -68,21 +83,3 @@
     -webkit-filter: grayscale(25%) blur(1px);
 	filter: grayscale(25%) blur(1px);
 }
-/*UBICACION*/
-#ubicacion{
-    background-image: 
-        radial-gradient(farthest-side, 
-            #14112ea2, 
-            #14112eb8, 
-            #14112ec5, 
-            #14112E),
-        url("../img/raptureWall.jpg");
-}
-#ubicacion iframe{
-    border-radius: 22px;
-}
-.ubicacion-cont{
-    display: flex;
-    flex-flow: row nowrap;
-}
-

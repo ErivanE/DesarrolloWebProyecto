@@ -1,4 +1,4 @@
-#ubicacion{
+#login{
     width: 100%;
     padding: 0rem 0rem;
     background-image: 
@@ -13,22 +13,12 @@
     align-items: center;
     justify-content: space-around;
 }
-.apartado{
-    width: 100%;
+.form-contacto{
+    width: 50%;
+    margin-bottom: 2rem;
+    justify-content: center;
 }
-.apartado h2{
-    padding: 1rem 3rem;
-}
-.agregados{
-    padding: 2.5rem 0rem;
-    background-color: #14112E;
-    color: white;
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-}
-.agregados-container{
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
+#adminLogin > span > a{
+    color: #C44A3E;
+    text-decoration: none;
 }
