@@ -1,4 +1,29 @@
 *{
+    margin: 0;
+    padding: 0;
+}
+.contenedorAdmin{
+    display: flex;
+    flex-flow: row;
+    padding: 2rem;
+}
+.adminForm{
+    width: 40%;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-start;
+    border-right: 1px solid black;
+}
+.adminForm form{
+    width: 80%;
+    display: flex;
+    flex-flow: column nowrap;
+}
+.adminForm label, .adminForm input{
+    font-size: 1.7rem;
+}
+table, td, th{
+    border-collapse: collapse;
 }
 .caja{
     width: 100%;

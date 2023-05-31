@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/estilo.css">
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="../css/estiloAdmin.css">
     <title>Inicio Admin</title>
@@ -30,8 +30,62 @@
     </nav>
     <!--MAIN-->
     <div class="contenedorAdmin">
-        <div class="adminForm"></div>
-        <div class="adminTablas"></div>
+        <div class="adminForm">
+            <form action="" method>
+                <label for="id" class="adminForm-label">Id</label>
+                <input type="text" name="id" id="id" class="adminForm-input">
+
+                <label for="titulo" class="adminForm-label">Titulo</label>
+                <input type="text" name="titulo" id="titulo" class="adminForm-input">
+
+                <label for="descripcion" class="adminForm-label">Descripcion</label>
+                <input type="text" name="descripcion" id="descripcion" class="adminForm-input">
+
+                <label for="precio" class="adminForm-label">Precio</label>
+                <input type="text" name="precio" id="precio" class="adminForm-input">
+
+                <label for="stock" class="adminForm-label">Stock</label>
+                <input type="text" name="stock" id="stock" class="adminForm-input">
+
+                <label for="url_img" class="adminForm-label">URL Img</label>
+                <input type="text" name="url_img" id="url_img" class="adminForm-input">
+
+                <label for="proveedor" class="adminForm-label">Proveedor</label>
+                <input type="text" name="proveedor" id="proveedor" class="adminForm-input">
+
+                <input type="submit" name="agregarAdmin"    value="Agregar">
+                <input type="submit" name="modificarAdmin"  value="Modificar">
+                <input type="submit" name="eliminarAdmin"   value="Eliminar">
+                <input type="submit" name="buscarAdmin"     value="Buscar">
+
+            </form>
+        </div>
+        <div class="adminTablas">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Titulo</th>
+                        <th>Descripcion</th>
+                        <th>Precio</th>
+                        <th>Stock</th>
+                        <th>URL Img</th>
+                        <th>Proveedor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
         <!--form agregar Producto-->
         <div class="caja">
