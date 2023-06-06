@@ -19,13 +19,12 @@
             <img src="../img/icons/KSPGames.png" alt="kspLogo">
             <p class="nav-login-item">|</p>
             <a href="#" class="nav-login-item">Inicio</a>
-            <a href="../html/productos.php" class="nav-login-item">Productos</a>
+            <a href="../php/productos.php" class="nav-login-item">Productos</a>
             <a href="../PHP/usuarios.php" class="nav-login-item">Usuarios</a>
             <a href="#" class="nav-login-item">Proveedores</a>
         </div>
         <div class="nav-login-container">
-            <a href="#" class="nav-login-item boton botonGris">Iniciar Sesion</a>
-            <a href="#" class="nav-login-item boton botonAzul">Registrarse</a>
+            <a href="#" class="nav-login-item boton botonAzul">Salir</a>
         </div>
     </nav>
     <!--MAIN-->
@@ -64,13 +63,13 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Id</th>
-                        <th>Titulo</th>
-                        <th>Descripcion</th>
-                        <th>Precio</th>
-                        <th>Stock</th>
-                        <th>URL Img</th>
-                        <th>Proveedor</th>
+                        <th class="celdaPequeña">Id</th>
+                        <th class="celdaMediana">Titulo</th>
+                        <th id="desc">Descripcion</th>
+                        <th class="celdaPequeña">Precio</th>
+                        <th class="celdaPequeña">Stock</th>
+                        <th id="url_img">URL Img</th>
+                        <th class="celdaMediana">Proveedor</th>
                     </tr>
                 </thead>
                 <tbody>

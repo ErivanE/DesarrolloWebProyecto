@@ -4,18 +4,16 @@
 }
 .contenedorAdmin{
     display: flex;
-    flex-flow: row;
+    flex-flow: row nowrap;
     padding: 2rem;
 }
 .adminForm{
-    width: 40%;
+    width: 25%;
     display: flex;
     flex-flow: row nowrap;
     align-items: flex-start;
-    border-right: 1px solid black;
 }
 .adminForm form{
-    width: 80%;
     display: flex;
     flex-flow: column nowrap;
 }
@@ -24,6 +22,18 @@
 }
 table, td, th{
     border-collapse: collapse;
+}
+.adminTablas{
+    width: 75%;
+}
+.adminTablas table{
+    width: 100%;
+}
+.celdaPequeña{
+    width: 5%;
+}
+.celdaMediana{
+    width: 30%;
 }
 .caja{
     width: 100%;
