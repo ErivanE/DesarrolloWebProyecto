@@ -1,0 +1,78 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.contenedorAdmin{
+    display: flex;
+    flex-flow: row nowrap;
+    padding: 1rem;
+}
+.adminForm{
+    width: 30%;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-start;
+}
+.adminForm form{
+    display: flex;
+    flex-flow: column nowrap;
+}
+.adminForm label, .adminForm input{
+    font-size: 1.7rem;
+}
+table, td, th{
+    border-collapse: collapse;
+}
+.adminTablas{
+    width: 75%;
+}
+.adminTablas table{
+    width: 100%;
+}
+.celdaPequeña{
+    width: 5%;
+}
+.celdaMediana{
+    width: 30%;
+}
+.caja{
+    width: 100%;
+    margin: 0rem auto;
+    padding-top: 1rem;
+}
+.caja form, .caja table{
+    width: 50%;
+    margin: 0rem auto;
+    margin-bottom: 2rem;
+    padding: 1rem 2rem;
+    background-color: black;
+    border-radius: 0.5rem;
+    box-shadow:  inset .5rem .5rem purple;
+}
+.cont{
+    width: 100%;
+}
+.cont-titulo{
+    color: white;
+}
+.cont-label{
+    width: 20%;
+    color: white;
+    margin-right: 2rem;
+    display: block;
+}
+.cont-input{
+    width: 100%;
+    color: black;
+    padding: .5rem 0.2rem;
+}
+.cont-boton{
+    color: black;
+    padding:.5rem 1rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+td, th{
+    padding: 1rem;
+    border: 1px solid black;
+    border-collapse: collapse;
+}

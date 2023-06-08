@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pruebas</title>
+    <style>
+        .tarjeta{
+            position: relative;
+        }
+        .contenedor-img{
+            position: relative;
+            width: 200px;
+            height: 300px;
+        }
+        .tarjeta-foto{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .icono-guardar{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .tarjeta:hover .icono-guardar{
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="tarjeta">
+        <div class="contenedor-img">
+            <img class="tarjeta-foto" src="img/500.jpeg" width="200" height="300" alt="">
+            <img class="icono-guardar" src="img/guardarIcono.png" alt="guardar">
+        </div>
+        <i class="icono-guardar fas fa-bookmark"></i>
+        <p>Titulo</p>
+    </div>
+</body>
+</html>

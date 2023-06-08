@@ -1,0 +1,24 @@
+#login{
+    width: 100%;
+    padding: 0rem 0rem;
+    background-image: 
+        radial-gradient(farthest-side, 
+            #14112ea2, 
+            #14112eb8, 
+            #14112ec5, 
+            #14112E),
+        url("../img/genshinBG2.jpg");
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.form-contacto{
+    width: 50%;
+    margin-bottom: 2rem;
+    justify-content: center;
+}
+#adminLogin > span > a{
+    color: #C44A3E;
+    text-decoration: none;
+}

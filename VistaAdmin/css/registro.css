@@ -1,0 +1,15 @@
+#registro{
+    width: 100%;
+    padding: 0rem 0rem;
+    background-image: 
+        radial-gradient(farthest-side, 
+            #14112ea2, 
+            #14112eb8, 
+            #14112ec5, 
+            #14112E),
+        url("../img/genshinBG2.jpg");
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
