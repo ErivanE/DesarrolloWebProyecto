@@ -7,13 +7,14 @@
     $direccion = $_POST['direccion']??NULL;
     $cp = $_POST['cp']??NULL;
     $contrasena = $_POST['contrasena']??NULL;
+    
 
     if(isset($_POST['agregar'])){
         $query = "INSERT INTO usuarios (id, nombre, correo, direccion, cp, contrasena) VALUES(0,'$nombre','$correo','$direccion','$cp','$contrasena')";
         $sql = mysqli_query($con, $query);
         
         if($sql){
-            header("location: ../html/login.html");
+            header("location: ../VistaUsuario/html/indexUser.php?user=".$correo);
         } 
     }else if(isset($_POST['agregarAdmin'])){
         $query = "INSERT INTO usuarios (id, nombre, correo, direccion, cp, contrasena) VALUES(0,'$nombre','$correo','$direccion','$cp','$contrasena')";

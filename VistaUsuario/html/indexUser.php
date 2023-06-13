@@ -1,69 +1,11 @@
-<?php
-    include '../../PHP/conexion.php'
-?>
+<?php include '../../PHP/conexion.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/navbar.css">
-    <title>Productos</title>
-    <style>
-        .contenedor{
-            background-color: white;
-            margin: 2rem 2rem;
-            display: flex;
-            flex-flow: row wrap;
-            justify-content: center;
-        }
-        p{
-            margin: 0;
-            padding: 0;
-        }
-        .tarjeta{
-            width: 250px;
-            margin: 20px;
-            padding: 0px;
-            border-radius: 0px;
-            background-color: white;
-            box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-        }
-        .icon{
-            margin: -50px 0px 0px 5px;
-            background-color: white;
-            border-radius: 50%;
-        }
-        .icon:hover{
-            background-color: whitesmoke;
-        }
-        .titulo{
-            font-size: 2rem;
-            text-align: center;
-            margin: 0rem 0rem 1rem 0rem;
-        }
-        .descripcion, .precio{
-            font-size: 1rem;
-            margin: 1rem 1rem;
-        }
-        .precio{
-            font-size: 2rem;
-            color: purple;
-        }
-        .precio::before{
-            content: "$";
-        }
-        .cont{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .tarjeta-icons{
-            display: flex;
-            justify-content: right;
-            padding: 0.5rem;
-        }
-    </style>
+    <link rel="stylesheet" href="../css/indexUser.css">
+    <title>Inicio</title>
 </head>
 <body>
     <!--NAVBAR-->
@@ -71,17 +13,30 @@
         <div class="nav-login-container">
             <img src="../../img/icons/KSPGames.png" alt="kspLogo">
             <p class="nav-login-item">|</p>
-            <a href="../../index.php"   class="nav-login-item">Inicio</a>
-            <a href="#"                 class="nav-login-item">Productos</a>
-            <a href="ubicacion.html"    class="nav-login-item">Ubicacion</a>
-            <a href="contacto.html"     class="nav-login-item">Contacto</a>
+            <a href="#"            class="nav-login-item">Productos</a>
+            <?php 
+            echo "<a href=carrito.php?user=".$." class="nav-login-item">asdfa</a>";
+            <a href="carrito.php?user=".$user.""  class="nav-login-item">Carrito</a>
         </div>
         <div class="nav-login-container">
-            <a href="login.html"        class="nav-login-item boton botonGris">Iniciar Sesion</a>
-            <a href="registro.html"     class="nav-login-item boton botonAzul">Registrarse</a>
+            <?php 
+                $user = $_GET['user'];
+                echo '<p class="nav-login-item">'.$user.'</p>'; 
+            ?>
+            <a href="../../index.php"   class="nav-login-item boton botonAzul">Salir</a>
         </div>
     </nav>
-
+    <!--MAIN-->
+    <!--TITULO-->
+    <section class="titulo-principal">
+        <div class="parrafo">
+            <p> 
+                ¡Encuentra tu próximo desafío virtual y conviértete en un verdadero jugador!
+            </p>
+        </div>
+    </section>
+    <main>
+    <div class="contenedorP"></div>
     <div class="contenedor">
         <?php
             $query = "SELECT id, titulo, descripcion, precio, stock, url_img FROM productos";
@@ -91,34 +46,32 @@
                 while($row = $result->fetch_assoc()){
                     echo "<div class='tarjeta'>";
                     //Imagen
-                    echo     "<img src='../../img/productos/".$row["url_img"]."' alt='img' width='250' height='250'>";
-                    echo     "<div class='tarjeta-icons'>";
-                    //Icono guardar
-                    //echo        "<a href='#'><img src='../../img/guardarIcono.png'  width='50' height='50' alt=''></a>";
+                    echo     "<img src='../../img/productos/".$row["url_img"]."' alt='img' width='250' height='300'>";
+                    echo     "<div class='tarjeta-icons'>"; 
                     //Icono Carrito
-                    //echo     "<a href='../../PHP/agregarCarrito.php?var=".$row["id"]."'><img src='../../img/icons/carrito.png'  width='35' height='35' alt='' class=''></a>";
-                    
-                    echo     "<a href='../../VistaUsuario/html/login.html'><img src='../../img/icons/carrito.png'  width='35' height='35' alt='' class=''></a>";
-                    
+                    echo     "<a href='../../PHP/carritoAgregar.php?user=".$user."&var=".$row["id"]."'><img src='../../img/icons/carrito.png' name='agregarCarrito' width='35' height='35' alt='' class=''></a>";
                     echo     "</div>";
                     echo     "<div class='cont'>";
                     //Titulo producto
                     echo        "<p class='titulo'>".$row["titulo"]."</p>";
                     //echo        "<p class='descripcion'>".$row["descripcion"]."</p>";
                     //Precio
-                    echo        "<p class='precio'>".$row["precio"]."</p>";
+                    echo        "<p class='precio'>$".$row["precio"]."</p>";
                     echo    "</div>";
                     echo "</div>";
                 }
             }
         ?>
     </div>
+        
+        
+    </main>
     <!--FOOTER-->
     <footer class="footer-container">
         <div class="footer-column columna1">
             <p>Encuentranos en:  </p>
             <ul>
-                <li>
+                <li> 
                     <a href="">
                         <img src="../../img/icons/facebookIcon.png" alt="Facebook">
                     </a>

@@ -1,6 +1,4 @@
-<?php
-    include 'php/conexion.php'
-?>
+<?php include 'php/conexion.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

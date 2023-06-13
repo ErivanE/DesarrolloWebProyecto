@@ -1,4 +1,3 @@
-
 *{
     font-family: 'Montserrat', sans-serif;
     margin: 0;
@@ -71,3 +70,53 @@
 }
 
 
+.titulo-principal{
+    width: 100%;
+    padding: 10rem 0rem;
+    background-image: radial-gradient(farthest-side, 
+        #14112ea2, 
+        #14112eb8, 
+        #14112ec5, 
+        #14112E), url("../../img/spider.jpg");
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.titulo-principal p{
+    color: white;
+    font-size: 3rem;
+    padding: 2rem;
+    line-height: 2.5rem;
+    text-align: center;
+}
+.contenedor{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+.tarjeta{
+    margin: 1rem;
+    width: 250px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;     
+}
+.tarjeta-icons{
+    display: flex;
+    justify-content: end;
+    padding: 0.5rem;
+}
+.cont{
+    display: flex;
+    flex-flow: column wrap;
+}
+.titulo{
+    font-size: 1rem;
+    text-align: center;
+    margin: 1rem 0rem;
+}
+.precio{
+    text-align: center;
+    font-size: 2rem;
+    color: #C44A3E;
+    margin-bottom: 1rem;
+}
