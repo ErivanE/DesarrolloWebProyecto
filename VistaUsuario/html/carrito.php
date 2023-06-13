@@ -12,9 +12,15 @@
     <style>
         table{
             background-color: white;
+            margin: 2rem;
+        }
+        tr, td, table{
+            border: 1px solid #000;
+            border-collapse: collapse;
         }
         h1{
-            color: white;
+            color: black;
+            padding: 2rem;
         }
     </style>
 </head>
@@ -58,15 +64,21 @@
                                 echo "<tr>";
                                     echo "<td>".$row["id_producto"]."</td>";
                                     echo "<td>".$row["nombre_producto"]."</td>"; 
-                                    echo "<td><img src ='../img/".$row['url_img']."' alt = 'Imagen del Producto jeje' width='100' height='100'></td>"; 
+                                    echo "<td><img src ='../../img/productos
+                                    /".$row['url_img']."' alt = 'Imagen del Producto jeje' width='100' height='100'></td>"; 
                                     echo "<td>".$row["precio"]."</td>";
-                                    echo "<td><a href='../PHP/eliminarCarrito.php?var=".$row['id']."'>Eliminar</a></td>";
+                                    //OPCION ELIMIINAR 
+                                    echo "<td><a href='../../PHP/carritoEliminar.php?var=".$row['id']."&user=$user'>Eliminar</a></td>";
                                 echo "</tr>";
                             }
                         }
                     ?>
                 </tbody>
             </table>
+
+            <div>
+                <button onclick=" ">Comprar</button>
+            </div>
         </div>
     </section>
     <!--FOOTER-->

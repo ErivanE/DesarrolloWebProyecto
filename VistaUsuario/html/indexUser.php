@@ -1,4 +1,7 @@
-<?php include '../../PHP/conexion.php' ?>
+<?php 
+include '../../PHP/conexion.php'; 
+$user = $_GET['user'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,12 +18,13 @@
             <p class="nav-login-item">|</p>
             <a href="#"            class="nav-login-item">Productos</a>
             <?php 
-            echo "<a href=carrito.php?user=".$." class="nav-login-item">asdfa</a>";
-            <a href="carrito.php?user=".$user.""  class="nav-login-item">Carrito</a>
+            echo '<a href=carrito.php?user='.$user.' class="nav-login-item">Carrito</a>';
+            //<a href="carrito.php?user=".$user.""  class="nav-login-item">Carrito</a>
+            ?>
         </div>
         <div class="nav-login-container">
             <?php 
-                $user = $_GET['user'];
+                
                 echo '<p class="nav-login-item">'.$user.'</p>'; 
             ?>
             <a href="../../index.php"   class="nav-login-item boton botonAzul">Salir</a>
