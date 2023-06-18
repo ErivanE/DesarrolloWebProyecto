@@ -1,4 +1,9 @@
-<?php include '../../php/conexion.php';?>
+<?php
+session_start();
+include '../../php/conexion.php';
+
+$user = $_GET['user'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,6 +27,7 @@
             color: black;
             padding: 2rem;
         }
+        
     </style>
 </head>
 <body>
@@ -30,12 +36,14 @@
         <div class="nav-login-container">
             <img src="../../img/icons/KSPGames.png" alt="kspLogo">
             <p class="nav-login-item">|</p>
-            <a href="#"   class="nav-login-item">Productos</a>
-            <a href="carrito.php"  class="nav-login-item">Carrito</a>
+            <?php
+            echo '<a href="indexUser.php?user='.$user.'" class="nav-login-item">Productos</a>';
+            echo '<a href="carrito.php?user='.$user.'" class="nav-login-item">Carrito</a>';
+            ?>
         </div>
         <div class="nav-login-container">
             <?php 
-                $user = $_GET['user'];
+                
                 echo '<p class="nav-login-item">'.$user.'</p>'; 
             ?>
             <a href="../../index.php"   class="nav-login-item boton botonAzul">Salir</a>
@@ -55,29 +63,39 @@
                     <th>Opciones</th>
                 </thead>
                 <tbody>
-                <?php
-                        $query = "SELECT id, id_producto, nombre_producto, precio, url_img FROM carrito";
+                <?php                       
+                        $array = [];
+                        $query = "SELECT id, id_producto, nombre_usuario, nombre_producto, precio, url_img FROM carrito WHERE nombre_usuario = '$user'";
                         $result = $con -> query($query);
     
                         if($result -> num_rows > 0){
                             while ($row = $result ->fetch_assoc()){
+                                array_push($array,$row);
                                 echo "<tr>";
                                     echo "<td>".$row["id_producto"]."</td>";
                                     echo "<td>".$row["nombre_producto"]."</td>"; 
+                                    echo "<td id='precio'>".$row["precio"]."</td>";
                                     echo "<td><img src ='../../img/productos
                                     /".$row['url_img']."' alt = 'Imagen del Producto jeje' width='100' height='100'></td>"; 
-                                    echo "<td>".$row["precio"]."</td>";
                                     //OPCION ELIMIINAR 
                                     echo "<td><a href='../../PHP/carritoEliminar.php?var=".$row['id']."&user=$user'>Eliminar</a></td>";
                                 echo "</tr>";
                             }
                         }
-                    ?>
+                ?>
                 </tbody>
             </table>
 
             <div>
-                <button onclick=" ">Comprar</button>
+                <?php
+                echo '<form action="../../php/generarPDFMau.php?user='.$user.'" method="post">';
+                    echo '<input type="submit" value="Comprar">';
+                echo '</form>';
+                ?>
+                <?php
+                    $_SESSION["productos"]=json_encode($array);
+                    // echo '<button class="boton bonton-azul" ><a href="../../php/generarPDFMau.php?user='.$user.'">Comprar</a></button>'
+                ?>
             </div>
         </div>
     </section>

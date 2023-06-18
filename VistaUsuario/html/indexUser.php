@@ -1,5 +1,9 @@
 <?php 
+session_start();
+// var_dump($_SESSION['nombre']);
+
 include '../../PHP/conexion.php'; 
+
 $user = $_GET['user'];
 ?>
 <!DOCTYPE html>
