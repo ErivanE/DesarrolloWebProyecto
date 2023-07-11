@@ -9,39 +9,39 @@
     $contrasena = $_POST['contrasena']??NULL;
     
 
-    // if(isset($_POST['agregar'])){
-    //     $query = "INSERT INTO usuarios (id, nombre, correo, direccion, cp, contrasena) VALUES(0,'$nombre','$correo','$direccion','$cp','$contrasena')";
-    //     $sql = mysqli_query($con, $query);
+    if(isset($_POST['agregar'])){
+        $query = "INSERT INTO usuarios (id, nombre, correo, direccion, cp, contrasena) VALUES(0,'$nombre','$correo','$direccion','$cp','$contrasena')";
+        $sql = mysqli_query($con, $query);
         
-    //     if($sql){
-    //         header("location: ../VistaUsuario/html/login.html");
-    //     } 
-    // }else if(isset($_POST['agregarAdmin'])){
-    //     $query = "INSERT INTO usuarios (id, nombre, correo, direccion, cp, contrasena) VALUES(0,'$nombre','$correo','$direccion','$cp','$contrasena')";
-    //     $sql = mysqli_query($con, $query);
+        if($sql){
+            header("location: ../VistaUsuario/html/login.html");
+        } 
+    }else if(isset($_POST['agregarAdmin'])){
+        $query = "INSERT INTO usuarios (id, nombre, correo, direccion, cp, contrasena) VALUES(0,'$nombre','$correo','$direccion','$cp','$contrasena')";
+        $sql = mysqli_query($con, $query);
         
-    //     if($sql){
-    //         header("location: ../php/usuarios.php");
-    //     } 
-    // }else if(isset($_POST['modificar'])){
-    //     $idBuscar = $_POST['id'];
-    //     $consulta = $con -> query("UPDATE usuarios
-    //                                 SET nombre = '$nombre',
-    //                                     correo = '$correo',
-    //                                     direccion = '$direccion',
-    //                                     cp = '$cp',
-    //                                     contrasena = '$contrasena'
-    //                                 WHERE id = '$idBuscar'");
-    //     if($consulta){
-    //         header("location: ../php/usuarios.php");
-    //     }
-    // }else if(isset($_POST['eliminar'])){
-    //     $idBuscar = $_POST['id'];
-    //     $consulta = $con -> query("DELETE FROM usuarios WHERE id = '$idBuscar'");
-    //     if($consulta){
-    //         header("location: ../php/usuarios.php");
-    //     }
-    // }else 
+        if($sql){
+            header("location: ../php/usuarios.php");
+        } 
+    }else if(isset($_POST['modificar'])){
+        $idBuscar = $_POST['id'];
+        $consulta = $con -> query("UPDATE usuarios
+                                    SET nombre = '$nombre',
+                                        correo = '$correo',
+                                        direccion = '$direccion',
+                                        cp = '$cp',
+                                        contrasena = '$contrasena'
+                                    WHERE id = '$idBuscar'");
+        if($consulta){
+            header("location: ../php/usuarios.php");
+        }
+    }else if(isset($_POST['eliminar'])){
+        $idBuscar = $_POST['id'];
+        $consulta = $con -> query("DELETE FROM usuarios WHERE id = '$idBuscar'");
+        if($consulta){
+            header("location: ../php/usuarios.php");
+        }
+    }else 
     if(isset($_POST['login'])){
         $consulta = $con -> query("SELECT * from usuarios WHERE correo = '$correo' and contrasena = '$contrasena'");
         $nr = mysqli_num_rows($consulta);
