@@ -53,8 +53,8 @@
                         $query ="SELECT * FROM productos ORDER BY id DESC LIMIT 6";
                         #$result = mysqli_query($con, $query);
                         $result = $con->query($query);
+                        echo "<h2>Banderin</h2>";
                         if($result = $result->num_rows>0){
-                            echo "<h2>Banderin</h2>";
                             while($row = $result ->fetch_assoc()){
                                 $nombre = $row['titulo'];
                                 $url_img = $row['url_img'];
