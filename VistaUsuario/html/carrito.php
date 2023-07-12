@@ -1,6 +1,5 @@
 <?php
-session_start();
-include '../../php/conexion.php';
+#include '../../php/conexion.php';
 
 $user = $_GET['user'];
 ?>
@@ -12,7 +11,6 @@ $user = $_GET['user'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrito</title>
     <link rel="stylesheet" href="../css/navbar.css">
-    <link rel="stylesheet" href="#">
     <link rel="stylesheet" href="../css/style.css">
     <style>
         table{
