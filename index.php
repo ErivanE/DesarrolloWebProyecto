@@ -54,6 +54,7 @@
                         #$result = mysqli_query($con, $query);
                         $result = $con->query($query);
                         if($result = $result->num_rows>0){
+                            echo "<h2>Banderin</h2>";
                             while($row = $result ->fetch_assoc()){
                                 $nombre = $row['titulo'];
                                 $url_img = $row['url_img'];
