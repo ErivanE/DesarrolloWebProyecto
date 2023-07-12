@@ -1,5 +1,5 @@
 <?php
-#include '../../php/conexion.php';
+include '../../php/conexion.php';
 
 $user = $_GET['user'];
 ?>
