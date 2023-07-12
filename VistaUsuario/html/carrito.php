@@ -67,7 +67,8 @@ $user = $_GET['user'];
                         $array = [];
                         $query = "SELECT id, id_producto, nombre_usuario, nombre_producto, precio, url_img FROM carrito WHERE nombre_usuario = '$user'";
                         $result = $con -> query($query);
-    
+                        echo "<script>console.log(".$user.");</script>";
+                        echo $user; 
                         if($result -> num_rows > 0){
                             while ($row = $result ->fetch_assoc()){
                                 array_push($array,$row);
