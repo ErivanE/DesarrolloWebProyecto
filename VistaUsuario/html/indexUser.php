@@ -70,6 +70,7 @@ $user = $_GET['user'];
                 }
             }
         ?>
+        
     </div>
         
         

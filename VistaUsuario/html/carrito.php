@@ -75,7 +75,7 @@ $user = $_GET['user'];
                                     echo "<td>".$row["nombre_producto"]."</td>"; 
                                     echo "<td id='precio'>".$row["precio"]."</td>";
                                     echo "<td><img src ='../../img/productos
-                                    /".$row['url_img']."' alt = 'Imagen del Producto jeje' width='100' height='100'></td>"; 
+                                    /".$row['url_img']."' alt = 'Imagen del Producto' width='100' height='100'></td>"; 
                                     //OPCION ELIMIINAR 
                                     echo "<td><a href='../../PHP/carritoEliminar.php?var=".$row['id']."&user=$user'>Eliminar</a></td>";
                                 echo "</tr>";
