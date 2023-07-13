@@ -51,9 +51,10 @@
                 <div class="agregados-container">
                     <?php
                         $query ="SELECT * FROM productos ORDER BY id DESC LIMIT 6";
-                        $result = $con->query($query);
+                        #$result = $con->query($query);
+                        $result = mysqli_query($con, $query);
                         #$result = mysqli_query($con, $query);
-                        while($row = $result->fetch_assoc()){  # mysqli_fetch_assoc($result)
+                        while($row = mysqli_fetch_assoc($result)){  # 
                             #$nombre = $row['titulo'];
                             #$url_img = $row['url_img'];
                             //TARJETA
