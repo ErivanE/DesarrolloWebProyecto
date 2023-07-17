@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 use PHPMailer\PHPMailer\PHPMailer;
 include "conexion.php";
@@ -76,7 +75,7 @@ $resultado_carrito = $con->query("SELECT * FROM carrito WHERE nombre_usuario = '
 	$mail->IsSMTP();
 	$mail->SMTPAuth = true;
 	$mail->Username = "ielizalde185@gmail.com";
-	$mail->Password = "irnuipscdzyguyub";
+	$mail->Password = "ccfegmdxbmdlmbgx";
 	$mail->SMTPSecure = "ssl";
 	$mail->Port = 465;
 	$mail->AddAddress($correo);
