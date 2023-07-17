@@ -1,6 +1,13 @@
 <?php
 include '../../PHP/conexion.php';
 $user = $_GET['user'];
+
+$file = '../../img/productos/bioshock.jpeg';
+if(file_exists($file)){
+    echo 'ruta buena';
+}else{
+    echo 'ruta mala :(';
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -73,8 +80,7 @@ $user = $_GET['user'];
                                     echo "<td>".$row["id_producto"]."</td>";
                                     echo "<td>".$row["nombre_producto"]."</td>"; 
                                     echo "<td id='precio'>".$row["precio"]."</td>";
-                                    echo "<td><img src ='../../img/productos
-                                    /".$row['url_img']."' alt = 'Imagen del Producto' width='100' height='100'></td>"; 
+                                    echo "<td><img src ='../../img/productos/".$row['url_img']."' alt = 'Imagen del Producto' width='100' height='100'></td>"; 
                                     //OPCION ELIMIINAR 
                                     echo "<td><a href='../../PHP/carritoEliminar.php?var=".$row['id']."&user=$user'>Eliminar</a></td>";
                                 echo "</tr>";
