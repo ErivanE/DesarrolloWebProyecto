@@ -1,7 +1,6 @@
 <?php
 include '../../PHP/conexion.php';
 $user = $_GET['user'];
-var_dump($user);
 ?>
 <!DOCTYPE html>
 <html lang="en">
