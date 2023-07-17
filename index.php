@@ -58,21 +58,21 @@ var_dump($a);
             <div>
                 <div class="agregados-container">
                     <?php
-                    // $query ="SELECT * FROM productos ORDER BY id DESC LIMIT 6";
-                    // #$result = $con->query($query);
-                    // $result = mysqli_query($con, $query);
-                    // #$result = mysqli_query($con, $query);
-                    // while($row = mysqli_fetch_assoc($result)){  # 
-                    //     #$nombre = $row['titulo'];
-                    //     #$url_img = $row['url_img'];
-                    //     //TARJETA
-                    //     echo '<div class="agregados-tarjeta">';
-                    //     echo    '<a href="#">';
-                    //     echo        '<img src= "img/productos/'.$row["url_img"].'" width="200" height="300" alt="producto">';
-                    //     echo    '</a>';
-                    //     echo    '<p>'.$row['titulo'].'</p>';
-                    //     echo '</div>';
-                    // }
+                    $query ="SELECT * FROM productos ORDER BY id DESC LIMIT 6";
+                    #$result = $con->query($query);
+                    $result = mysqli_query($con, $query);
+                    #$result = mysqli_query($con, $query);
+                    while($row = mysqli_fetch_assoc($result)){  # 
+                        #$nombre = $row['titulo'];
+                        #$url_img = $row['url_img'];
+                        //TARJETA
+                        echo '<div class="agregados-tarjeta">';
+                        echo    '<a href="#">';
+                        echo        '<img src= "img/productos/'.$row["url_img"].'" width="200" height="300" alt="producto">';
+                        echo    '</a>';
+                        echo    '<p>'.$row['titulo'].'</p>';
+                        echo '</div>';
+                    }
                     ?>
 
                 </div>
