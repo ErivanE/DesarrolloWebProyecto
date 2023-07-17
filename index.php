@@ -1,7 +1,5 @@
 <?php
-include '/PHP/conexion.php';
-$a = 52;
-var_dump($a);
+include 'PHP/conexion.php';
 
 $file = 'PHP/conexion.php';
 if(file_exists($file)){
