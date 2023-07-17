@@ -2,12 +2,6 @@
 include '../../PHP/conexion.php';
 $user = $_GET['user'];
 
-$file = '../../img/productos/bioshock.jpeg';
-if(file_exists($file)){
-    echo 'ruta buena';
-}else{
-    echo 'ruta mala :(';
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,7 +41,6 @@ if(file_exists($file)){
         </div>
         <div class="nav-login-container">
             <?php 
-                
                 echo '<p class="nav-login-item">'.$user.'</p>'; 
             ?>
             <a href="../../index.php"   class="nav-login-item boton botonAzul">Salir</a>
@@ -71,8 +64,6 @@ if(file_exists($file)){
                         $array = [];
                         $query = "SELECT id, id_producto, nombre_usuario, nombre_producto, precio, url_img FROM carrito WHERE nombre_usuario = '$user'";
                         $result = $con -> query($query);
-                        echo "<script>console.log(".$user.");</script>";
-                        echo $user; 
                         if($result -> num_rows > 0){
                             while ($row = $result ->fetch_assoc()){
                                 array_push($array,$row);
@@ -92,13 +83,9 @@ if(file_exists($file)){
 
             <div>
                 <?php
-                echo '<form action="../../PHP/generarPDFMau.php?user='.$user.'" method="post">';
-                    echo '<input type="submit" value="Comprar">';
-                echo '</form>';
-                ?>
-                <?php
-                    $_SESSION["productos"]=json_encode($array);
-                    // echo '<button class="boton bonton-azul" ><a href="../../php/generarPDFMau.php?user='.$user.'">Comprar</a></button>'
+                    echo '<form action = "../../PHP/generarPDFMau.php?user='.$user.'" method="post">';
+                    echo    '<input type="submit" value="Comprar">';
+                    echo '</form>';
                 ?>
             </div>
         </div>

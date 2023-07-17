@@ -6,7 +6,7 @@ include "../fpdf185/fpdf.php";
 require "../vendor/autoload.php";
 
 $user = $_GET["user"];
-
+var_dump($user);
 //USUARIO
 $idUsuario;
 $nombre;
@@ -22,7 +22,7 @@ if($usuario && $usuario->num_rows>0){
     $fila = $usuario->fetch_assoc();
     $idUsuario = $fila['id'];
     $nombre = $fila['nombre'];
-    $direcicon = $fila['direccion'];
+    $direccion = $fila['direccion'];
     $cp = $fila['cp'];
     $correo = $fila['correo'];
     $contrasena = $fila['contrasena'];
