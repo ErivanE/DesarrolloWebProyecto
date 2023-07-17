@@ -3,7 +3,7 @@ include '/PHP/conexion.php';
 $a = 52;
 var_dump($a);
 
-$file = '/PHP/conexion.php';
+$file = 'PHP/conexion.php';
 if(file_exists($file)){
     echo 'si se agrega';
 }else{
