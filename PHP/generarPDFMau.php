@@ -7,7 +7,6 @@ include "../fpdf185/fpdf.php";
 require "../vendor/autoload.php";
 
 $user = $_GET["user"];
-var_dump($user);
 //USUARIO
 $idUsuario;
 $nombre;
@@ -28,7 +27,6 @@ if ($usuario && $usuario->num_rows > 0) {
     $correo = $fila['correo'];
     $contrasena = $fila['contrasena'];
 }
-var_dump($nombre);
 
 //CARRITO
 // Crear un nuevo objeto FPDF
@@ -41,7 +39,7 @@ $pdf->SetFont('Arial', 'B', 18);
 $pdf->Cell(0, 10, 'Este mensaje ha sido enviado por KSP Games', 0, 1);
 $pdf->Ln(10);
 $pdf->SetFont('Arial', 'B', 14);
-$pdf->Cell(0, 10, 'Para: ' . $nombre, 0, 1); 
+$pdf->Cell(0, 10, 'Para: ' . $nombre, 0, 1);
 $pdf->Cell(0, 10, 'Productos:', 0, 1);
 
 $resultado_carrito = $con->query("SELECT * FROM carrito WHERE nombre_usuario = '$user'");
@@ -52,21 +50,43 @@ if ($resultado_carrito && $resultado_carrito->num_rows > 0) {
         // Otros campos del carrito
         $precio = $fila_carrito['precio'];
         $total += $precio;
-        var_dump($total);
 
         // Agregar los datos del carrito al PDF
-        $pdf->Cell(0, 10, "\t\t ".$nombre_producto."  $".$precio, 0, 1);
+        $pdf->Cell(0, 10, "\t\t " . $nombre_producto . "$" . $precio, 0, 1);
         // Agregar otros campos del carrito al PDF
-
     }
     $pdf->Cell(0, 10, "\t\tTotal: $total", 0, 1);
+    echo $total;
 }
 $fecha = date('l jS \of F Y h:i:s A');
+echo $fecha;
 $pdf->Cell(0, 10, 'Fecha: ' . $fecha, 0, 1); // Cambio de $datos_historial['fecha'] a $fecha
 
 // Guardar el PDF en el servidor
+$ruta = '../pdf/orden' . $idUsuario . '.pdf';
+if (file_exists($ruta)) {
+    echo 'rutaSi ';
+} else {
+    echo 'rutaNo :c';
+}
 $pdfPath = '../pdf/orden' . $idUsuario . '.pdf';
-$pdf->Output($pdfPath, 'F');
+
+try {
+    $pdf->Output($pdfPath, 'F');
+    $generacionExitosa = true;
+} catch (Exception $e) {
+    $generacionExitosa = false;
+}
+
+if ($generacionExitosa) {
+    echo "El archivo PDF se generó correctamente.";
+} else {
+    echo "Error al generar el archivo PDF.";
+}
+
+
+//$pdf->Output($pdfPath, 'F');
+
 
 // Definir los encabezados del correo electrónico
 $mail = new PHPMailer();
@@ -86,11 +106,20 @@ $mail->Subject = 'GRACIAS POR TU PREFERENCIA!';
 $mail->Body = '<b>Adjuntamos un resumen de tu compra</b>';
 $mail->AltBody = 'Te mandamos el resumen de tu compra';
 
+echo $idUsuario;
+
+//Adjuntar pdf a $mail
 $inMailFileName = "recibo.pdf";
 $filePath = '../pdf/orden' . $idUsuario . '.pdf';
 $mail->AddAttachment($filePath, $inMailFileName);
 
-$mail->send();
 
-header('location: EliminarCarrito.php?user=' . $user);
+$envio = $mail->send();
+if ($envio) {
+    echo 'Envio exitoso';
+} else {
+    echo 'No se enviaaaaaaaaaa ' . $mail->ErrorInfo;
+}
+
+//header('location: EliminarCarrito.php?user='.$user);
 ?>
