@@ -2,6 +2,12 @@
 include '../../PHP/conexion.php';
 $user = $_GET['user'];
 
+$file = '../../img/productos/bioshock.jpeg';
+if(file_exists($file)){
+    echo 'ruta buena';
+}else{
+    echo 'ruta mala :(';
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -86,7 +92,7 @@ $user = $_GET['user'];
 
             <div>
                 <?php
-                echo '<form action="../../php/generarPDFMau.php?user='.$user.'" method="post">';
+                echo '<form action="../../PHP/generarPDFMau.php?user='.$user.'" method="post">';
                     echo '<input type="submit" value="Comprar">';
                 echo '</form>';
                 ?>
