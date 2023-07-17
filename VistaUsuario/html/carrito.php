@@ -2,12 +2,6 @@
 include '../../PHP/conexion.php';
 $user = $_GET['user'];
 
-$file = '../../img/productos/bioshock.jpeg';
-if(file_exists($file)){
-    echo 'ruta buena';
-}else{
-    echo 'ruta mala :(';
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
