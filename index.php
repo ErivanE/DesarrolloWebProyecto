@@ -1,6 +1,11 @@
-<?php include '/css/html/jsphp/conexion.php' ?>
+<?php
+include '/PHP/conexion.php';
+$a = 52;
+var_dump($a);
+?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,21 +16,24 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-KXmDlF1ri1m3+oQTxo2dPXHoqr/qndCS0fVwX6rD38eq8yzG0BZNA26DrpYToPENdzmsS2IAGU8AMr8NZlTjMQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-KXmDlF1ri1m3+oQTxo2dPXHoqr/qndCS0fVwX6rD38eq8yzG0BZNA26DrpYToPENdzmsS2IAGU8AMr8NZlTjMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 <body>
     <!--NAVBAR-->
     <nav class="nav">
         <div class="nav-login-container">
             <img src="img/icons/KSPGames.png" alt="kspLogo">
             <p class="nav-login-item">|</p>
-            <a href="#"                                 class="nav-login-item">Inicio</a>
-            <a href="VistaUsuario/html/productos.php"   class="nav-login-item">Productos</a>
-            <a href="VistaUsuario/html/ubicacion.html"  class="nav-login-item">Ubicacion</a>
-            <a href="VistaUsuario/html/contacto.html"   class="nav-login-item">Contacto</a>
+            <a href="#" class="nav-login-item">Inicio</a>
+            <a href="VistaUsuario/html/productos.php" class="nav-login-item">Productos</a>
+            <a href="VistaUsuario/html/ubicacion.html" class="nav-login-item">Ubicacion</a>
+            <a href="VistaUsuario/html/contacto.html" class="nav-login-item">Contacto</a>
         </div>
         <div class="nav-login-container">
-            <a href="VistaUsuario/html/login.html"      class="nav-login-item boton botonGris">Iniciar Sesion</a>
-            <a href="VistaUsuario/html/registro.html"   class="nav-login-item boton botonAzul">Registrarse</a>
+            <a href="VistaUsuario/html/login.html" class="nav-login-item boton botonGris">Iniciar Sesion</a>
+            <a href="VistaUsuario/html/registro.html" class="nav-login-item boton botonAzul">Registrarse</a>
         </div>
     </nav>
     <!--TITULO-->
@@ -33,7 +41,7 @@
         <div class="parrafo">
             <h1 id="inicio">KSP Games</h1>
             <p>
-                Explora nuevos mundos, encuentra grandes juegos.<span> KSP Games</span>, 
+                Explora nuevos mundos, encuentra grandes juegos.<span> KSP Games</span>,
                 tu destino de entretenimiento interactivo.
             </p>
         </div>
@@ -50,33 +58,33 @@
             <div>
                 <div class="agregados-container">
                     <?php
-                        // $query ="SELECT * FROM productos ORDER BY id DESC LIMIT 6";
-                        // #$result = $con->query($query);
-                        // $result = mysqli_query($con, $query);
-                        // #$result = mysqli_query($con, $query);
-                        // while($row = mysqli_fetch_assoc($result)){  # 
-                        //     #$nombre = $row['titulo'];
-                        //     #$url_img = $row['url_img'];
-                        //     //TARJETA
-                        //     echo '<div class="agregados-tarjeta">';
-                        //     echo    '<a href="#">';
-                        //     echo        '<img src= "img/productos/'.$row["url_img"].'" width="200" height="300" alt="producto">';
-                        //     echo    '</a>';
-                        //     echo    '<p>'.$row['titulo'].'</p>';
-                        //     echo '</div>';
-                        // }
+                    // $query ="SELECT * FROM productos ORDER BY id DESC LIMIT 6";
+                    // #$result = $con->query($query);
+                    // $result = mysqli_query($con, $query);
+                    // #$result = mysqli_query($con, $query);
+                    // while($row = mysqli_fetch_assoc($result)){  # 
+                    //     #$nombre = $row['titulo'];
+                    //     #$url_img = $row['url_img'];
+                    //     //TARJETA
+                    //     echo '<div class="agregados-tarjeta">';
+                    //     echo    '<a href="#">';
+                    //     echo        '<img src= "img/productos/'.$row["url_img"].'" width="200" height="300" alt="producto">';
+                    //     echo    '</a>';
+                    //     echo    '<p>'.$row['titulo'].'</p>';
+                    //     echo '</div>';
+                    // }
                     ?>
 
                 </div>
             </div>
         </section>
-        
-        
+
+
     </main>
     <!--FOOTER-->
     <footer class="footer-container">
         <div class="footer-column columna1">
-            <p>Encuentranos en:  </p>
+            <p>Encuentranos en: </p>
             <ul>
                 <li>
                     <a href="">
@@ -103,27 +111,28 @@
         <div class="footer-column columna2">
             <h2>KSP Games</h2>
             <p>
-                KSP Games es una pagina donde puedes comprar videojuegos en formato fisico, 
+                KSP Games es una pagina donde puedes comprar videojuegos en formato fisico,
                 asi como tambien Consolas, controles, accesorios y Ediciones de coleccion
             </p>
-            
+
         </div>
         <div class="footer-column columna2">
             <h2>Mision</h2>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Corrupti in ipsum inventore, fugiat provident ex, possimus, 
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Corrupti in ipsum inventore, fugiat provident ex, possimus,
                 aspernatur ut laboriosam nisi consequuntur et officia quaerat
-                 id totam repellendus deleniti omnis numquam!
-                </p>
+                id totam repellendus deleniti omnis numquam!
+            </p>
             <h2>Vision</h2>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Assumenda repellendus odio officiis rem voluptatibus ipsa sapiente, 
-                error exercitationem quam doloremque distinctio quia porro, aut nesciunt 
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Assumenda repellendus odio officiis rem voluptatibus ipsa sapiente,
+                error exercitationem quam doloremque distinctio quia porro, aut nesciunt
                 aspernatur nihil omnis, quae praesentium.
             </p>
         </div>
     </footer>
 </body>
+
 </html>
