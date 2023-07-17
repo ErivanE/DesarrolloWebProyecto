@@ -19,7 +19,6 @@ $contrasena;
 $total = 0;
 
 $usuario = $con->query("SELECT * FROM usuarios WHERE correo = '$user'");
-var_dump($usuario);
 if ($usuario && $usuario->num_rows > 0) {
     $fila = $usuario->fetch_assoc();
     $idUsuario = $fila['id'];
@@ -29,13 +28,11 @@ if ($usuario && $usuario->num_rows > 0) {
     $correo = $fila['correo'];
     $contrasena = $fila['contrasena'];
 }
+var_dump($nombre);
 
 //CARRITO
-$resultado_carrito = $con->query("SELECT * FROM carrito WHERE nombre_usuario = '$user'");
-var_dump($resultado_carrito);
 // Crear un nuevo objeto FPDF
 $pdf = new FPDF();
-var_dump($pdf);
 // Agregar una nueva página al PDF
 $pdf->AddPage();
 
@@ -47,6 +44,7 @@ $pdf->SetFont('Arial', 'B', 14);
 $pdf->Cell(0, 10, 'Para: ' . $nombre, 0, 1); 
 $pdf->Cell(0, 10, 'Productos:', 0, 1);
 
+$resultado_carrito = $con->query("SELECT * FROM carrito WHERE nombre_usuario = '$user'");
 if ($resultado_carrito && $resultado_carrito->num_rows > 0) {
     while ($fila_carrito = mysqli_fetch_assoc($resultado_carrito)) {
         // Obtener los datos específicos del carrito
@@ -54,9 +52,10 @@ if ($resultado_carrito && $resultado_carrito->num_rows > 0) {
         // Otros campos del carrito
         $precio = $fila_carrito['precio'];
         $total += $precio;
+        var_dump($total);
 
         // Agregar los datos del carrito al PDF
-        $pdf->Cell(0, 10, "\t\t$nombre_producto  -$$precio", 0, 1);
+        $pdf->Cell(0, 10, "\t\t ".$nombre_producto."  $".$precio, 0, 1);
         // Agregar otros campos del carrito al PDF
 
     }
