@@ -2,7 +2,6 @@
 include "conexion.php";
 $user = $_GET["user"];
 
-
 //USUARIO
 $idUsuario;
 $nombre;
@@ -60,10 +59,12 @@ $pdf->Cell(0, 10, 'Fecha: ' . $fecha, 0, 1); // Cambio de $datos_historial['fech
 // Guardar el PDF en el servidor
 //$pdfPath = '../pdf/orden' . $idUsuario . '.pdf'; //ruta
 echo 'echo antes del writable pdf';
+
+$pdfdoc = $pdf->Output("doc", "S");
+$pdfListo->chunk_split(base64_encode($pdfdoc));
+
 if (is_writable('../pdf/')) {
     // La carpeta es escribible, continuar con la generación del PDF
-    $pdfdoc = $pdf->Output("doc", "S");
-    $pdfListo->chunk_split(base64_encode($pdfdoc));
     echo 'chunk punk bien';
 } else {
     echo "Error: La carpeta de destino no tiene permisos de escritura.";
