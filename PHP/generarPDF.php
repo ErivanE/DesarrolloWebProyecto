@@ -48,10 +48,8 @@ $pdf->Cell(0, 10, 'Fecha: ' . $fecha, 0, 1); // Cambio de $datos_historial['fech
 //Guardar PDF
 $numero = rand(1,50);
 $nombreArchivo = 'recibo'.$numero.'.pdf';
-echo $nombreArchivo;
-$ruta = '../pdf/'.$user.'/'.$nombreArchivo;
-echo $ruta;
-$pdf->Output($ruta, 'F');
+$rutaArchivo = '../pdf/'.$user.'/'.$nombreArchivo;
+$pdf->Output($rutaArchivo, 'F');
 
 // Configuración del correo electrónico
 $nombreRemitente = 'KSPGames';
@@ -65,6 +63,7 @@ $mensaje = 'Gracias por su compra :D';
 $mail = new PHPMailer(true); // Habilita las excepciones de PHPMailer
 
 try {
+    echo 'entrando al try';
     // Configuración del servidor SMTP de Google
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
@@ -77,12 +76,12 @@ try {
     // Configuración de los remitentes y destinatarios
     $mail->setFrom($correoRemitente, $nombreRemitente);
     $mail->addAddress($correoDestinatario, $nombreDestinatario);
-    $mail->AddAttachment($ruta, $nombreArchivo);
-
+    
     // Contenido del correo
     $mail->isHTML(true);
     $mail->Subject = $asunto;
     $mail->Body = $mensaje;
+    $mail->AddAttachment($rutaArchivo, $nombreArchivo);
 
     // Envío del correo
     $mail->send();
