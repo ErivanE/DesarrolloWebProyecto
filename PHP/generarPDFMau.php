@@ -60,41 +60,41 @@ $fecha = date('l jS \of F Y h:i:s A');
 $pdf->Cell(0, 10, 'Fecha: ' . $fecha, 0, 1); // Cambio de $datos_historial['fecha'] a $fecha
 
 // Guardar el PDF en el servidor
-$pdfPath = '../pdf/orden' . $idUsuario . '.pdf'; //ruta
+//$pdfPath = '../pdf/orden' . $idUsuario . '.pdf'; //ruta
 
 if (is_writable('../pdf/')) {
     // La carpeta es escribible, continuar con la generación del PDF
-    $pdfS = $pdf->Output($pdfPath, "S");
-    $pdfListo -> chunk_split(base64_encode($pdfS));
+    $pdfS = $pdf->Output("doc", "S");
+    $pdfListo->chunk_split(base64_encode($pdfS));
 } else {
     echo "Error: La carpeta de destino no tiene permisos de escritura.";
 }
 
 $mail = new PHPMailer(true);
-try{
-    $mail ->isSMTP();
+try {
+    $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
     $mail->Username = 'a21110138@ceti.mx';
     $mail->Password = 'Erivan926';
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-    $mail->Port = 587 ;
+    $mail->Port = 587;
 
     $mail->setFrom('a21110138@ceti.mx', 'Ivan Elizalde');
-    $mail ->addAddress($correo, 'Receptor');
+    $mail->addAddress($correo, 'Receptor');
     $mail->addCC('21110138@ceti.mx');
 
-    $mail->addStringAttachment($pdfS, $pdfPath);
+    $mail->addStringAttachment($pdfS, 'doc');
 
     $mail->isHTML(true);
     $mail->Subject = 'GRACIAS POR TU PREFERENCIA';
     $mail->Body = 'Adjuntamos el resumen de tu compra';
     $mail->AltBody = 'Te mandamos el resumen de tu compra';
-    $mail -> send();
+    $mail->send();
 
     echo 'correo enviado';
-}catch(Exception $e){
-    echo 'Mensaje '.$mail->ErrorInfo;
+} catch (Exception $e) {
+    echo 'Mensaje ' . $mail->ErrorInfo;
 }
 // Definir los encabezados del correo electrónico
 // $mail->CharSet = 'utf-8';
