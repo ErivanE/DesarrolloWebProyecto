@@ -61,14 +61,8 @@ $pdf->Cell(0, 10, 'Fecha: ' . $fecha, 0, 1); // Cambio de $datos_historial['fech
 echo 'echo antes del writable pdf';
 
 $pdfdoc = $pdf->Output("doc", "S");
-$pdfListo->chunk_split(base64_encode($pdfdoc));
 
-if (is_writable('../pdf/')) {
-    // La carpeta es escribible, continuar con la generación del PDF
-    echo 'chunk punk bien';
-} else {
-    echo "Error: La carpeta de destino no tiene permisos de escritura.";
-}
+$pdfListo->chunk_split(base64_encode($pdfdoc));
 
 echo 'echo antes del try';
 try {
