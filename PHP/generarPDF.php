@@ -60,8 +60,9 @@ $asunto = 'Resumen de Compra';
 $mensaje = 'Gracias por su compra :D';
 
 // Configuración de PHPMailer
+echo 'Antes de phpmailer true';
 $mail = new PHPMailer(true); // Habilita las excepciones de PHPMailer
-
+echo '/ndespues??';
 try {
     echo 'entrando al try';
     // Configuración del servidor SMTP de Google
