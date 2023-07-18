@@ -2,11 +2,6 @@
 include "conexion.php";
 $user = $_GET["user"];
 
-require "../fpdf185/fpdf.php";
-require "../vendor/autoload.php";
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
 
 //USUARIO
 $idUsuario;
@@ -28,18 +23,21 @@ if ($usuario && $usuario->num_rows > 0) {
     $correo = $fila['correo'];
     $contrasena = $fila['contrasena'];
 }
-//CARRITO
-// Crear un nuevo objeto FPDF
+require "../fpdf185/fpdf.php";
+require "../vendor/autoload.php";
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+$mail = new PHPMailer(true);
 $pdf = new FPDF();
 $pdf->AddPage();
-
-// Generar el contenido del PDF
 $pdf->SetFont('Arial', 'B', 18);
-$pdf->Cell(0, 10, 'Este mensaje ha sido enviado por KSP Games', 0, 1);
-$pdf->Ln(10);
-$pdf->SetFont('Arial', 'B', 14);
-$pdf->Cell(0, 10, 'Para: ' . $nombre, 0, 1);
-$pdf->Cell(0, 10, 'Productos:', 0, 1);
+// $pdf->Cell(0, 10, 'Este mensaje ha sido enviado por KSP Games', 0, 1);
+// $pdf->Ln(10);
+// $pdf->SetFont('Arial', 'B', 14);
+// $pdf->Cell(0, 10, 'Para: ' . $nombre, 0, 1);
+// $pdf->Cell(0, 10, 'Productos:', 0, 1);
 
 $resultado_carrito = $con->query("SELECT * FROM carrito WHERE nombre_usuario = '$user'");
 if ($resultado_carrito && $resultado_carrito->num_rows > 0) {
@@ -61,16 +59,17 @@ $pdf->Cell(0, 10, 'Fecha: ' . $fecha, 0, 1); // Cambio de $datos_historial['fech
 
 // Guardar el PDF en el servidor
 //$pdfPath = '../pdf/orden' . $idUsuario . '.pdf'; //ruta
-
+echo 'echo antes del writable pdf';
 if (is_writable('../pdf/')) {
     // La carpeta es escribible, continuar con la generación del PDF
-    $pdfS = $pdf->Output("doc", "S");
-    $pdfListo->chunk_split(base64_encode($pdfS));
+    $pdfdoc = $pdf->Output("doc", "S");
+    $pdfListo->chunk_split(base64_encode($pdfdoc));
+    echo 'chunk punk bien';
 } else {
     echo "Error: La carpeta de destino no tiene permisos de escritura.";
 }
 
-$mail = new PHPMailer(true);
+echo 'echo antes del try';
 try {
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
@@ -81,15 +80,15 @@ try {
     $mail->Port = 587;
 
     $mail->setFrom('a21110138@ceti.mx', 'Ivan Elizalde');
-    $mail->addAddress($correo, 'Receptor');
-    $mail->addCC('21110138@ceti.mx');
+    $mail->addAddress('ielizalde185@gmail.com', 'Receptor');
+    $mail->addCC('a21110138@ceti.mx');
 
-    $mail->addStringAttachment($pdfS, 'doc');
+    $mail->addStringAttachment($pdfdoc, 'doc');
 
     $mail->isHTML(true);
     $mail->Subject = 'GRACIAS POR TU PREFERENCIA';
     $mail->Body = 'Adjuntamos el resumen de tu compra';
-    $mail->AltBody = 'Te mandamos el resumen de tu compra';
+    //$mail->AltBody = 'Te mandamos el resumen de tu compra';
     $mail->send();
 
     echo 'correo enviado';
