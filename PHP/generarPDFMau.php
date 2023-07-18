@@ -58,28 +58,30 @@ $fecha = date('l jS \of F Y h:i:s A');
 $pdf->Cell(0, 10, 'Fecha: ' . $fecha, 0, 1); // Cambio de $datos_historial['fecha'] a $fecha
 
 // Guardar el PDF en el servidor
-$ruta = '../pdf/orden9.pdf';
-if (file_exists($ruta)) {
-    echo 'ruta del pdf correcta ';
-} else {
-    echo 'ruta del pdf incorrecta :c';
-}
-$pdfPath = '../pdf/orden' . $idUsuario . '.pdf';
+$pdfPath = '../pdf/orden' . $idUsuario . '.pdf'; //ruta
 
-$error;
-try {
+if (is_writable('../pdf/')) {
+    // La carpeta es escribible, continuar con la generación del PDF
     $pdf->Output($pdfPath, 'F');
-    $generacionExitosa = true;
-} catch (Exception $e) {
-    $generacionExitosa = false;
-    $error = $e;
+} else {
+    echo "Error: La carpeta de destino no tiene permisos de escritura.";
 }
 
-if ($generacionExitosa) {
-    echo "El archivo PDF se generó correctamente.";
-} else {
-    echo "Error al generar el archivo PDF" . $e;
-}
+
+// $error;
+// try {
+//     $pdf->Output($pdfPath, 'F');
+//     $generacionExitosa = true;
+// } catch (Exception $e) {
+//     $generacionExitosa = false;
+//     $error = $e;
+// }
+
+// if ($generacionExitosa) {
+//     echo "El archivo PDF se generó correctamente.";
+// } else {
+//     echo "Error al generar el archivo PDF" . $e;
+// }
 
 //$pdf->Output($pdfPath, 'F');
 
