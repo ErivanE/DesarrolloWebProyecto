@@ -1,12 +1,18 @@
 <?php
-
+$user = $_GET["user"];
 use PHPMailer\PHPMailer\PHPMailer;
 
 include "conexion.php";
 include "../fpdf185/fpdf.php";
 require "../vendor/autoload.php";
 
-$user = $_GET["user"];
+$fpdf = "../fpdf185/fpdf.php";
+$vendor = "../vendor/autoload.php";
+if (file_exists($fpdf) && file_exists($vendor)) {
+    echo '\n existe fpdf y vendor';
+} else {
+    echo '\n No existe fpdf ni vendor \n';
+}
 //USUARIO
 $idUsuario;
 $nombre;
@@ -27,7 +33,7 @@ if ($usuario && $usuario->num_rows > 0) {
     $correo = $fila['correo'];
     $contrasena = $fila['contrasena'];
 }
-
+echo '\nresultado del query usuario: ' . $nombre;
 //CARRITO
 // Crear un nuevo objeto FPDF
 $pdf = new FPDF();
@@ -56,37 +62,37 @@ if ($resultado_carrito && $resultado_carrito->num_rows > 0) {
         // Agregar otros campos del carrito al PDF
     }
     $pdf->Cell(0, 10, "\t\tTotal: $total", 0, 1);
-    echo $total;
+    echo '\nResultado del query carrito: ' . $nombre_producto;
 }
 $fecha = date('l jS \of F Y h:i:s A');
-echo $fecha;
+echo '/nLa fecha es: ' . $fecha;
 $pdf->Cell(0, 10, 'Fecha: ' . $fecha, 0, 1); // Cambio de $datos_historial['fecha'] a $fecha
 
 // Guardar el PDF en el servidor
 $ruta = '../pdf/orden' . $idUsuario . '.pdf';
 if (file_exists($ruta)) {
-    echo 'rutaSi ';
+    echo 'ruta del pdf correcta ';
 } else {
-    echo 'rutaNo :c';
+    echo 'ruta del pdf incorrecta :c';
 }
 $pdfPath = '../pdf/orden' . $idUsuario . '.pdf';
 
+$error;
 try {
     $pdf->Output($pdfPath, 'F');
     $generacionExitosa = true;
 } catch (Exception $e) {
     $generacionExitosa = false;
+    $error = $e;
 }
 
 if ($generacionExitosa) {
     echo "El archivo PDF se generó correctamente.";
 } else {
-    echo "Error al generar el archivo PDF.";
+    echo "Error al generar el archivo PDF" . $e;
 }
 
-
 //$pdf->Output($pdfPath, 'F');
-
 
 // Definir los encabezados del correo electrónico
 $mail = new PHPMailer();
@@ -106,7 +112,7 @@ $mail->Subject = 'GRACIAS POR TU PREFERENCIA!';
 $mail->Body = '<b>Adjuntamos un resumen de tu compra</b>';
 $mail->AltBody = 'Te mandamos el resumen de tu compra';
 
-echo $idUsuario;
+echo '\nEl id de usuario: ' . $idUsuario;
 
 //Adjuntar pdf a $mail
 $inMailFileName = "recibo.pdf";
@@ -116,10 +122,9 @@ $mail->AddAttachment($filePath, $inMailFileName);
 
 $envio = $mail->send();
 if ($envio) {
-    echo 'Envio exitoso';
+    echo '\nEnvio exitoso';
 } else {
-    echo 'No se enviaaaaaaaaaa ' . $mail->ErrorInfo;
+    echo '\nNo se enviaaaaaaaaaa ' . $mail->ErrorInfo;
 }
-
 //header('location: EliminarCarrito.php?user='.$user);
 ?>
