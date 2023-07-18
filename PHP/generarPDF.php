@@ -49,7 +49,11 @@ $pdf->Cell(0, 10, 'Fecha: ' . $fecha, 0, 1); // Cambio de $datos_historial['fech
 $numero = rand(1,50);
 $nombreArchivo = 'recibo'.$numero.'.pdf';
 $rutaArchivo = '../pdf/'.$user.'/'.$nombreArchivo;
-$pdf->Output($rutaArchivo, 'F');
+if($pdf->Output($rutaArchivo, 'F')){
+    echo 'si hizo el output';
+}else{
+    echo 'no se hizo el output';
+}
 
 // Configuración del correo electrónico
 $nombreRemitente = 'KSPGames';
