@@ -1,10 +1,12 @@
 <?php
-$user = $_GET["user"];
-use PHPMailer\PHPMailer\PHPMailer;
-
 include "conexion.php";
-include "../fpdf185/fpdf.php";
+$user = $_GET["user"];
+
+require "../fpdf185/fpdf.php";
 require "../vendor/autoload.php";
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 
 //USUARIO
 $idUsuario;
@@ -29,7 +31,6 @@ if ($usuario && $usuario->num_rows > 0) {
 //CARRITO
 // Crear un nuevo objeto FPDF
 $pdf = new FPDF();
-// Agregar una nueva página al PDF
 $pdf->AddPage();
 
 // Generar el contenido del PDF
@@ -63,46 +64,72 @@ $pdfPath = '../pdf/orden' . $idUsuario . '.pdf'; //ruta
 
 if (is_writable('../pdf/')) {
     // La carpeta es escribible, continuar con la generación del PDF
-    $pdf->Output($pdfPath, 'F');
+    $pdfS = $pdf->Output($pdfPath, "S");
+    $pdfListo -> chunk_split(base64_encode($pdfS));
 } else {
     echo "Error: La carpeta de destino no tiene permisos de escritura.";
 }
 
+$mail = new PHPMailer(true);
+try{
+    $mail ->isSMTP();
+    $mail->Host = 'smtp.gmail.com';
+    $mail->SMTPAuth = true;
+    $mail->Username = 'a21110138@ceti.mx';
+    $mail->Password = 'Erivan926';
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->Port = 587 ;
+
+    $mail->setFrom('a21110138@ceti.mx', 'Ivan Elizalde');
+    $mail ->addAddress($correo, 'Receptor');
+    $mail->addCC('21110138@ceti.mx');
+
+    $mail->addStringAttachment($pdfS, $pdfPath);
+
+    $mail->isHTML(true);
+    $mail->Subject = 'GRACIAS POR TU PREFERENCIA';
+    $mail->Body = 'Adjuntamos el resumen de tu compra';
+    $mail->AltBody = 'Te mandamos el resumen de tu compra';
+    $mail -> send();
+
+    echo 'correo enviado';
+}catch(Exception $e){
+    echo 'Mensaje '.$mail->ErrorInfo;
+}
 // Definir los encabezados del correo electrónico
-$mail = new PHPMailer();
-$mail->CharSet = 'utf-8';
-$mail->Host = "smtp.googlemail.com";
-$mail->From = "ielizalde185@gmail.com";
-$mail->IsSMTP();
-$mail->SMTPAuth = true;
-$mail->Username = "ielizalde185@gmail.com";
-$mail->Password = "csdoseadxkfcbzqf";
-$mail->SMTPSecure = "ssl";
-$mail->Port = 465;
-$mail->AddAddress($correo);
-$mail->SMTPDebug = 0; //Muestra las trazas del mail, 0 para ocultarla
-$mail->isHTML(true); // Set email format to HTML
-$mail->Subject = 'GRACIAS POR TU PREFERENCIA!';
-$mail->Body = '<b>Adjuntamos un resumen de tu compra</b>';
-$mail->AltBody = 'Te mandamos el resumen de tu compra';
+// $mail->CharSet = 'utf-8';
+// $mail->Host = "smtp.googlemail.com";
+// $mail->From = "ielizalde185@gmail.com";
+// $mail->IsSMTP();
+// $mail->SMTPAuth = true;
+// $mail->Username = "ielizalde185@gmail.com";
+// $mail->Password = "csdoseadxkfcbzqf";
+// $mail->SMTPSecure = "ssl";
+// $mail->Port = 465;
+// $mail->AddAddress($correo);
+// $mail->SMTPDebug = 0; //Muestra las trazas del mail, 0 para ocultarla
+// $mail->isHTML(true); // Set email format to HTML
+// $mail->Subject = 'GRACIAS POR TU PREFERENCIA!';
+// $mail->Body = '<b>Adjuntamos un resumen de tu compra</b>';
+// $mail->AltBody = 'Te mandamos el resumen de tu compra';
 
 
-//Adjuntar pdf a $mail
-$inMailFileName = "recibo.pdf";
-$filePath = '../pdf/orden' . $idUsuario . '.pdf';
-if(file_exists($filePath)){
-    $mail->AddAttachment($filePath, $inMailFileName);
-}else{
-    echo 'La ruta del pdf no existe';
-}
+// //Adjuntar pdf a $mail
+// $inMailFileName = "recibo.pdf";
+// $filePath = '../pdf/orden' . $idUsuario . '.pdf';
+// if(file_exists($filePath)){
+//     $mail->AddAttachment($filePath, $inMailFileName);
+// }else{
+//     echo 'La ruta del pdf no existe';
+// }
 
-$envio = $mail->send();
-if ($envio) {
-    echo '\nEnvio exitoso';
-    header('location: EliminarCarrito.php?user='.$user);
-} else {
-    echo '\nNo se enviaaaaaaaaaa ' . $mail->ErrorInfo;
-    header('location: ../pruebas.html');
-}
+// $envio = $mail->send();
+// if ($envio) {
+//     echo '\nEnvio exitoso';
+//     header('location: EliminarCarrito.php?user='.$user);
+// } else {
+//     echo '\nNo se enviaaaaaaaaaa ' . $mail->ErrorInfo;
+//     header('location: ../pruebas.html');
+// }
 //header('location: EliminarCarrito.php?user='.$user);
 ?>
