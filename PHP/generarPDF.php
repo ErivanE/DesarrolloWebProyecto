@@ -5,6 +5,7 @@ include 'conexion.php';
 #PHPMailer, fpdf y vendor
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+use FPDF\FPDF;
 
 require '../PHPMailer-master/src/PHPMailer.php';
 require '../PHPMailer-master/src/Exception.php';
@@ -16,13 +17,40 @@ require "../vendor/autoload.php";
 $user = $_GET["user"];
 $idUsuario;
 $nombre;
-
 $usuario = $con->query("SELECT * FROM usuarios WHERE correo = '$user'");
 if ($usuario && $usuario->num_rows > 0) {
-    $fila = $usuario->fetch_assoc();
-    $idUsuario = $fila['id'];
-    $nombre = $fila['nombre'];
+    $fila       = $usuario->fetch_assoc();
+    $idUsuario  = $fila['id'];
+    $nombre     = $fila['nombre'];
 }
+//Datos Carrito
+$resultado_carrito = $con->query("SELECT * FROM carrito WHERE nombre_usuario = '$user'");
+
+//Configuracion PDF
+$pdf = new FPDF();
+$pdf->AddPage();
+$pdf->SetFont('Arial', 'B', 18);
+$pdf->Cell(0, 10, 'Este mensaje ha sido enviado por KSP Games', 0, 1);
+$pdf->Ln(10);
+$pdf->SetFont('Arial', 'B', 14);
+$pdf->Cell(0, 10, 'Para: ' . $nombre, 0, 1);
+$pdf->Cell(0, 10, 'Productos:', 0, 1);
+if ($resultado_carrito && $resultado_carrito->num_rows > 0) {
+    while ($fila_carrito = mysqli_fetch_assoc($resultado_carrito)) {
+        $total += $fila_carrito['precio'];
+        $pdf->Cell(0, 10, "\t\t " . $fila_carrito['$nombre_producto']. " $" . $fila_carrito['precio'], 0, 1);
+    }
+    $pdf->Cell(0, 10, "\t\tTotal: $total", 0, 1);
+}
+$fecha = date('l jS \of F Y h:i:s A');
+$pdf->Cell(0, 10, 'Fecha: ' . $fecha, 0, 1); // Cambio de $datos_historial['fecha'] a $fecha
+
+//Guardar PDF
+$numero = rand(1,50);
+$nombreArchivo = 'recibo'.$numero.'.pdf';
+$ruta = '../pdf/'.$user.'/'.$nombreArchivo;
+$pdf->Output($ruta, 'F');
+
 // Configuración del correo electrónico
 $nombreRemitente = 'KSPGames';
 $correoRemitente = 'a21110138@ceti.mx';
@@ -47,6 +75,7 @@ try {
     // Configuración de los remitentes y destinatarios
     $mail->setFrom($correoRemitente, $nombreRemitente);
     $mail->addAddress($correoDestinatario, $nombreDestinatario);
+    $mail->AddAttachment($ruta, $nombreArchivo);
 
     // Contenido del correo
     $mail->isHTML(true);

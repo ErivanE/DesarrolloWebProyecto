@@ -38,7 +38,8 @@ $pdf->SetFont('Arial', 'B', 18);
 // $pdf->Cell(0, 10, 'Para: ' . $nombre, 0, 1);
 // $pdf->Cell(0, 10, 'Productos:', 0, 1);
 
-$resultado_carrito = $con->query("SELECT * FROM carrito WHERE nombre_usuario = '$user'");
+$resultado_carrito = $con->query("SELECT * FROM carrito 
+WHERE nombre_usuario = '$user'");
 if ($resultado_carrito && $resultado_carrito->num_rows > 0) {
     while ($fila_carrito = mysqli_fetch_assoc($resultado_carrito)) {
         // Obtener los datos específicos del carrito
