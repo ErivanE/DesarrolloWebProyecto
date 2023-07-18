@@ -39,7 +39,7 @@ try {
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
-    $mail->Username = 'a21110138@gmail.com'; // Reemplaza con tu dirección de correo electrónico de Gmail
+    $mail->Username = 'a21110138@ceti.mx'; // Reemplaza con tu dirección de correo electrónico de Gmail
     $mail->Password = 'Erivan926'; // Reemplaza con tu contraseña de Gmail
     $mail->SMTPSecure = 'tls';
     $mail->Port = 587;
