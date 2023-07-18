@@ -47,12 +47,14 @@ $pdf->Cell(0, 10, 'Fecha: ' . $fecha, 0, 1); // Cambio de $datos_historial['fech
 
 //Guardar PDF
 $numero = rand(1,50);
-$nombreArchivo = 'recibo'.$numero.'.pdf';
-$rutaArchivo = '../pdf/'.$user.'/'.$nombreArchivo;
-if($pdf->Output($rutaArchivo, 'F')){
-    echo 'si hizo el output';
+$nombreArchivo = 'recibo.pdf';
+$rutaArchivo = '../pdf/'.$user.'/recibo.pdf';
+$pdf->Output($rutaArchivo, 'F');
+
+if(file_exists($rutaArchivo)){
+    echo 'si se genero el pdf';
 }else{
-    echo 'no se hizo el output';
+    echo 'nosegeneroelpdf;LAKSJDFNCXZV';
 }
 
 // Configuración del correo electrónico
