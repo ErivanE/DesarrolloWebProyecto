@@ -93,7 +93,7 @@ $mail->From = "ielizalde185@gmail.com";
 $mail->IsSMTP();
 $mail->SMTPAuth = true;
 $mail->Username = "ielizalde185@gmail.com";
-$mail->Password = "ccfegmdxbmdlmbgx";
+$mail->Password = "csdoseadxkfcbzqf";
 $mail->SMTPSecure = "ssl";
 $mail->Port = 465;
 $mail->AddAddress($correo);
@@ -107,7 +107,11 @@ $mail->AltBody = 'Te mandamos el resumen de tu compra';
 //Adjuntar pdf a $mail
 $inMailFileName = "recibo.pdf";
 $filePath = '../pdf/orden' . $idUsuario . '.pdf';
-$mail->AddAttachment($filePath, $inMailFileName);
+if(file_exists($filePath)){
+    $mail->AddAttachment($filePath, $inMailFileName);
+}else{
+    echo 'La ruta del pdf no existe';
+}
 
 
 $envio = $mail->send();
