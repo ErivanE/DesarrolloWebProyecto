@@ -5,6 +5,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 include "conexion.php";
 include "../fpdf185/fpdf.php";
 require "../vendor/autoload.php";
+
 //USUARIO
 $idUsuario;
 $nombre;
@@ -67,24 +68,6 @@ if (is_writable('../pdf/')) {
     echo "Error: La carpeta de destino no tiene permisos de escritura.";
 }
 
-
-// $error;
-// try {
-//     $pdf->Output($pdfPath, 'F');
-//     $generacionExitosa = true;
-// } catch (Exception $e) {
-//     $generacionExitosa = false;
-//     $error = $e;
-// }
-
-// if ($generacionExitosa) {
-//     echo "El archivo PDF se generó correctamente.";
-// } else {
-//     echo "Error al generar el archivo PDF" . $e;
-// }
-
-//$pdf->Output($pdfPath, 'F');
-
 // Definir los encabezados del correo electrónico
 $mail = new PHPMailer();
 $mail->CharSet = 'utf-8';
@@ -113,12 +96,13 @@ if(file_exists($filePath)){
     echo 'La ruta del pdf no existe';
 }
 
-$mail->send;
 $envio = $mail->send();
 if ($envio) {
     echo '\nEnvio exitoso';
+    header('location: EliminarCarrito.php?user='.$user);
 } else {
     echo '\nNo se enviaaaaaaaaaa ' . $mail->ErrorInfo;
+    header('location: ../pruebas.html');
 }
 //header('location: EliminarCarrito.php?user='.$user);
 ?>
