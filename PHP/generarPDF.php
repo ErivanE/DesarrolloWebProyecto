@@ -5,7 +5,7 @@ include 'conexion.php';
 #PHPMailer, fpdf y vendor
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-use FPDF\FPDF;
+//use FPDF\FPDF;
 
 require '../PHPMailer-master/src/PHPMailer.php';
 require '../PHPMailer-master/src/Exception.php';
@@ -48,7 +48,9 @@ $pdf->Cell(0, 10, 'Fecha: ' . $fecha, 0, 1); // Cambio de $datos_historial['fech
 //Guardar PDF
 $numero = rand(1,50);
 $nombreArchivo = 'recibo'.$numero.'.pdf';
+echo $nombreArchivo;
 $ruta = '../pdf/'.$user.'/'.$nombreArchivo;
+echo $ruta;
 $pdf->Output($ruta, 'F');
 
 // Configuración del correo electrónico
