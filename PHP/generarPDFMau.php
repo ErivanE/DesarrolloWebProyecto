@@ -113,7 +113,7 @@ if(file_exists($filePath)){
     echo 'La ruta del pdf no existe';
 }
 
-
+$mail->send;
 $envio = $mail->send();
 if ($envio) {
     echo '\nEnvio exitoso';
