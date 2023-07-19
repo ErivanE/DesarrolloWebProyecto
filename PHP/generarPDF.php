@@ -5,6 +5,7 @@ include 'conexion.php';
 #PHPMailer, fpdf y vendor
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+
 //use FPDF\FPDF;
 
 require '../PHPMailer-master/src/PHPMailer.php';
@@ -20,9 +21,9 @@ $nombre;
 $numeroCompra;
 $usuario = $con->query("SELECT * FROM usuarios WHERE correo = '$user'");
 if ($usuario && $usuario->num_rows > 0) {
-    $fila       = $usuario->fetch_assoc();
-    $idUsuario  = $fila['id'];
-    $nombre     = $fila['nombre'];
+    $fila = $usuario->fetch_assoc();
+    $idUsuario = $fila['id'];
+    $nombre = $fila['nombre'];
     $numeroCompra = $fila['numeroCompra'];
 }
 //Datos Carrito
@@ -43,39 +44,39 @@ try {
         $resultado_carrito = $con->query("SELECT * FROM carrito WHERE nombre_usuario = '$user'");
         if ($resultado_carrito && $resultado_carrito->num_rows > 0) {
             while ($fila_carrito = mysqli_fetch_assoc($resultado_carrito)) {
-                
+
                 $total += $fila_carrito['precio'];
-                $pdf->Cell(0, 10, "\t\t " . $fila_carrito['nombre_producto']. " $" . $fila_carrito['precio'], 0, 1);
+                $pdf->Cell(0, 10, "\t\t " . $fila_carrito['nombre_producto'] . " $" . $fila_carrito['precio'], 0, 1);
             }
             $pdf->Cell(0, 10, "\t\tTotal: $total", 0, 1);
         }
         $fecha = date('l jS \of F Y h:i:s A');
     } catch (Exception $e) {
         //throw $th;
-        echo 'Error en tablas de productos: '.$e;
+        echo 'Error en tablas de productos: ' . $e;
     }
     $pdf->Cell(0, 10, 'Fecha: ' . $fecha, 0, 1); // Cambio de $datos_historial['fecha'] a $fecha
-    
+
 
     try { //try guardar pdf
         //code...
         //Guardar PDF
         //$numero = rand(1,50);
-        $nombreArchivo = 'recibo.pdf';
-        $rutaArchivo = '../pdf/recibo.pdf';
+        $nombreArchivo = 'recibo' . $numeroCompra;
+        $rutaArchivo = '../pdf/' . $user . '/' . $nombreArchivo . '.pdf';
         $pdf->Output($rutaArchivo, 'F');
     } catch (Exception $e) {
         //throw $th;
-        echo 'Error en guardar pdf'.$e;
+        echo 'Error en guardar pdf' . $e;
     }
 } catch (Exception $e) {
     //throw $th;
-    echo 'Error al generar pdf: '.$e->getMessage();
+    echo 'Error al generar pdf: ' . $e->getMessage();
 }
 
-if(file_exists($rutaArchivo)){
+if (file_exists($rutaArchivo)) {
     echo 'si se genero el pdf';
-}else{
+} else {
     echo 'nosegeneroelpdf;LAKSJDFNCXZV';
 }
 
@@ -88,11 +89,8 @@ $asunto = 'Resumen de Compra';
 $mensaje = 'Gracias por su compra :D';
 
 // Configuración de PHPMailer
-echo 'Antes de phpmailer true';
 $mail = new PHPMailer(true); // Habilita las excepciones de PHPMailer
-echo '/ndespues??';
 try {
-    echo 'entrando al try';
     // Configuración del servidor SMTP de Google
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
@@ -105,7 +103,7 @@ try {
     // Configuración de los remitentes y destinatarios
     $mail->setFrom($correoRemitente, $nombreRemitente);
     $mail->addAddress($correoDestinatario, $nombreDestinatario);
-    
+
     // Contenido del correo
     $mail->isHTML(true);
     $mail->Subject = $asunto;
@@ -115,15 +113,15 @@ try {
         $mail->AddAttachment($rutaArchivo, $nombreArchivo);
     } catch (Exception $e) {
         //throw $th;
-        echo 'error al adjuntar el pdf '.$e;
+        echo 'error al adjuntar el pdf ' . $e;
     }
 
     // Envío del correo
     $numeroCompra += 1;
     $mail->send();
-    echo 'El correo se envió correctamente. '.$numeroCompra.' nv:  '.$numeroCompra.'ggg';
     $query = mysqli_query($con, "UPDATE usuarios SET numeroCompra =$numeroCompra WHERE correo = '$user' ");
-    if($query) echo 'Numero de compra actualizado';
+    if ($query)
+        echo 'Numero de compra actualizado';
 } catch (Exception $e) {
     echo 'Error al enviar el correo: ' . $mail->ErrorInfo;
 }
