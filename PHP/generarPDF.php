@@ -31,27 +31,27 @@ try {
     $pdf->AddPage();
     $pdf->SetFont('Arial', 'B', 18);
     $pdf->Cell(0, 10, 'Este mensaje ha sido enviado por KSP Games', 0, 1);
-    // $pdf->Ln(10);
-    // $pdf->SetFont('Arial', 'B', 14);
-    // $pdf->Cell(0, 10, 'Para: ' . $nombre, 0, 1);
-    // $pdf->Cell(0, 10, 'Productos:', 0, 1);
+    $pdf->Ln(10);
+    $pdf->SetFont('Arial', 'B', 14);
+    $pdf->Cell(0, 10, 'Para: ' . $nombre, 0, 1);
+    $pdf->Cell(0, 10, 'Productos:', 0, 1);
 
-    // try { //try tabla de productos
-    //     //code...
-    //     $resultado_carrito = $con->query("SELECT * FROM carrito WHERE nombre_usuario = '$user'");
-    //     if ($resultado_carrito && $resultado_carrito->num_rows > 0) {
-    //         while ($fila_carrito = mysqli_fetch_assoc($resultado_carrito)) {
-    //             $total += $fila_carrito['precio'];
-    //             $pdf->Cell(0, 10, "\t\t " . $fila_carrito['$nombre_producto']. " $" . $fila_carrito['precio'], 0, 1);
-    //         }
-    //         $pdf->Cell(0, 10, "\t\tTotal: $total", 0, 1);
-    //     }
-    //     $fecha = date('l jS \of F Y h:i:s A');
-    // } catch (Exception $e) {
-    //     //throw $th;
-    //     echo 'Error en tablas de productos: '.$e;
-    // }
-    // $pdf->Cell(0, 10, 'Fecha: ' . $fecha, 0, 1); // Cambio de $datos_historial['fecha'] a $fecha
+    try { //try tabla de productos
+        //code...
+        $resultado_carrito = $con->query("SELECT * FROM carrito WHERE nombre_usuario = '$user'");
+        if ($resultado_carrito && $resultado_carrito->num_rows > 0) {
+            while ($fila_carrito = mysqli_fetch_assoc($resultado_carrito)) {
+                $total += $fila_carrito['precio'];
+                $pdf->Cell(0, 10, "\t\t " . $fila_carrito['$nombre_producto']. " $" . $fila_carrito['precio'], 0, 1);
+            }
+            $pdf->Cell(0, 10, "\t\tTotal: $total", 0, 1);
+        }
+        $fecha = date('l jS \of F Y h:i:s A');
+    } catch (Exception $e) {
+        //throw $th;
+        echo 'Error en tablas de productos: '.$e;
+    }
+    $pdf->Cell(0, 10, 'Fecha: ' . $fecha, 0, 1); // Cambio de $datos_historial['fecha'] a $fecha
     
 
     try { //try guardar pdf
