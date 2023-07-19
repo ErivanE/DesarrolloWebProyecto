@@ -30,8 +30,11 @@ if ($usuario && $usuario->num_rows > 0) {
 
 //Configuracion PDF
 try {
+    $rutaLogo = '../img/icons/KSPGames.png';
+
     $pdf = new FPDF();
     $pdf->AddPage();
+    $pdf->Image($rutaLogo, 0, 0, 50, 100);
     $pdf->SetFont('Arial', 'B', 18);
     $pdf->Cell(0, 10, 'Este mensaje ha sido enviado por KSP Games', 0, 1);
     $pdf->Ln(10);
@@ -64,7 +67,6 @@ try {
         //$numero = rand(1,50);
         $archivo = "recibo$idUsuario$numeroCompra.pdf";
         $rutaArchivo = "../pdf/$archivo";
-        echo $rutaArchivo;
         //$rutaArchivo = '../pdf/recibo.pdf';
         $pdf->Output($rutaArchivo, 'F');
     } catch (Exception $e) {
@@ -74,12 +76,6 @@ try {
 } catch (Exception $e) {
     //throw $th;
     echo 'Error al generar pdf: ' . $e->getMessage();
-}
-
-if (file_exists($rutaArchivo)) {
-    echo 'si se genero el pdf';
-} else {
-    echo 'nosegeneroelpdf;LAKSJDFNCXZV';
 }
 
 // Configuración del correo electrónico
@@ -122,8 +118,10 @@ try {
     $numeroCompra += 1;
     $mail->send();
     $query = mysqli_query($con, "UPDATE usuarios SET numeroCompra =$numeroCompra WHERE correo = '$user' ");
-    if ($query)
+    if ($query) {
         echo 'Numero de compra actualizado';
+        header('location: EliminarCarrito.php?user=' . $user);
+    }
 } catch (Exception $e) {
     echo 'Error al enviar el correo: ' . $mail->ErrorInfo;
 }
