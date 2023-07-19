@@ -41,8 +41,9 @@ try {
         $resultado_carrito = $con->query("SELECT * FROM carrito WHERE nombre_usuario = '$user'");
         if ($resultado_carrito && $resultado_carrito->num_rows > 0) {
             while ($fila_carrito = mysqli_fetch_assoc($resultado_carrito)) {
+                
                 $total += $fila_carrito['precio'];
-                $pdf->Cell(0, 10, "\t\t " . $fila_carrito['$nombre_producto']. " $" . $fila_carrito['precio'], 0, 1);
+                $pdf->Cell(0, 10, "\t\t " . $fila_carrito['nombre_producto']. " $" . $fila_carrito['precio'], 0, 1);
             }
             $pdf->Cell(0, 10, "\t\tTotal: $total", 0, 1);
         }
