@@ -62,7 +62,8 @@ try {
         //code...
         //Guardar PDF
         //$numero = rand(1,50);
-        $rutaArchivo = "../pdf/recibo$user$numeroCompra.pdf";
+        $archivo = "recibo$idUsuario$numeroCompra.pdf";
+        $rutaArchivo = "../pdf/$archivo";
         echo $rutaArchivo;
         //$rutaArchivo = '../pdf/recibo.pdf';
         $pdf->Output($rutaArchivo, 'F');
@@ -111,7 +112,7 @@ try {
     $mail->Body = $mensaje;
     try {
         //code...
-        $mail->AddAttachment($rutaArchivo, $nombreArchivo);
+        $mail->AddAttachment($rutaArchivo, $archivo);
     } catch (Exception $e) {
         //throw $th;
         echo 'error al adjuntar el pdf ' . $e;
