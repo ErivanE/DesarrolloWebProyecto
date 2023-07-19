@@ -74,6 +74,27 @@ try {
         $rutaArchivo = "../pdf/$archivo";
         //$rutaArchivo = '../pdf/recibo.pdf';
         $pdf->Output($rutaArchivo, 'F');
+
+        $webdavUrl = "http://10.0.0.3/VirtualizacionWebDav/pdf/$archivo";
+        // Inicializar cURL y configurar la solicitud WebDAV
+        $ch = curl_init($webdavUrl);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_PUT, true);
+        curl_setopt($ch, CURLOPT_INFILE, fopen($rutaArchivo, 'r'));
+        curl_setopt($ch, CURLOPT_INFILESIZE, filesize($rutaArchivo));
+
+        // Ejecutar la solicitud WebDAV
+        $response = curl_exec($ch);
+
+        // Verificar si la solicitud se realizó con éxito
+        if ($response === false) {
+            echo 'Error al subir el archivo a WebDAV: ' . curl_error($ch);
+        } else {
+            echo 'El archivo se subió correctamente a WebDAV.';
+        }
+
+        // Cerrar la conexión cURL
+        curl_close($ch);
     } catch (Exception $e) {
         //throw $th;
         echo 'Error en guardar pdf' . $e;
