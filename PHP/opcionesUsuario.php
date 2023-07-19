@@ -10,14 +10,14 @@
     
 
     if(isset($_POST['agregar'])){
-        $query = "INSERT INTO usuarios (id, nombre, correo, direccion, cp, contrasena) VALUES(0,'$nombre','$correo','$direccion','$cp','$contrasena')";
+        $query = "INSERT INTO usuarios (id, nombre, correo, direccion, cp, contrasena, numeroCompra) VALUES(0,'$nombre','$correo','$direccion','$cp','$contrasena',1)";
         $sql = mysqli_query($con, $query);
         
         if($sql){
             header("location: ../VistaUsuario/html/login.html");
         } 
     }else if(isset($_POST['agregarAdmin'])){
-        $query = "INSERT INTO usuarios (id, nombre, correo, direccion, cp, contrasena) VALUES(0,'$nombre','$correo','$direccion','$cp','$contrasena')";
+        $query = "INSERT INTO usuarios (id, nombre, correo, direccion, cp, contrasena, numeroCompra) VALUES(0,'$nombre','$correo','$direccion','$cp','$contrasena',1)";
         $sql = mysqli_query($con, $query);
         
         if($sql){
