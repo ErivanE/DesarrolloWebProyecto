@@ -117,12 +117,10 @@ try {
     }
 
     // Envío del correo
-    $mail->send();
-    echo 'El correo se envió correctamente.';
     $nCompraAnterior = mysqli_query($con, "SELECT numeroCompra from usuarios where id = '$user'");
-    $nCompraNuevo = $nCompraAnterior++;
-    echo "/n Numero compra viejo = ".$nCompraAnterior;
-    echo '/n Numero compra nuevo ='.$nCompraNuevo;
+    $nCompraNuevo = $nCompraAnterior + 1;
+    $mail->send();
+    echo 'El correo se envió correctamente. '.$nCompraAnterior.' nv:  '.$nCompraNuevo.'ggg';
     $query = mysqli_query($con, "UPDATE usuarios SET numeroCompra =$nCompraNuevo WHERE id = '$user' ");
 } catch (Exception $e) {
     echo 'Error al enviar el correo: ' . $mail->ErrorInfo;
