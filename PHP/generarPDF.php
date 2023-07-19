@@ -62,8 +62,8 @@ try {
         //code...
         //Guardar PDF
         //$numero = rand(1,50);
-        $nombreArchivo = 'recibo' . $numeroCompra;
-        $rutaArchivo = '../pdf/' . $user . '/' . $nombreArchivo . '.pdf';
+        $rutaArchivo = '../pdf/recibo'.$user.$numeroCompra.'.pdf';
+        //$rutaArchivo = '../pdf/recibo.pdf';
         $pdf->Output($rutaArchivo, 'F');
     } catch (Exception $e) {
         //throw $th;
