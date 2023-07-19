@@ -34,7 +34,7 @@ try {
 
     $pdf = new FPDF();
     $pdf->AddPage();
-    $pdf->Image($rutaLogo, 0, 0, 50, 100);
+    $pdf->Image($rutaLogo, 0, 0, 150, 25);
     $pdf->SetFont('Arial', 'B', 18);
     $pdf->Cell(0, 10, 'Este mensaje ha sido enviado por KSP Games', 0, 1);
     $pdf->Ln(10);
