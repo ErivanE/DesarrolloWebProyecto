@@ -119,10 +119,11 @@ try {
     }
 
     // Envío del correo
-    $numeroCompraNuevo = $numeroCompra++;
+    $numeroCompra += 1;
     $mail->send();
-    echo 'El correo se envió correctamente. '.$numeroCompra.' nv:  '.$numeroCompraNuevo.'ggg';
-    $query = mysqli_query($con, "UPDATE usuarios SET numeroCompra =$numeroCompraNuevo WHERE correo = '$user' ");
+    echo 'El correo se envió correctamente. '.$numeroCompra.' nv:  '.$numeroCompra.'ggg';
+    $query = mysqli_query($con, "UPDATE usuarios SET numeroCompra =$numeroCompra WHERE correo = '$user' ");
+    if($query) echo 'Numero de compra actualizado';
 } catch (Exception $e) {
     echo 'Error al enviar el correo: ' . $mail->ErrorInfo;
 }
