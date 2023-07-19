@@ -35,9 +35,9 @@ try {
     $pdf = new FPDF();
     $pdf->AddPage();
     $anchoPagina = $pdf->GetPageWidth();
-    $anchoImagen = 50;
+    $anchoImagen = 75;
     $posicionX = $anchoPagina - $anchoImagen;
-    $pdf->Image($rutaLogo, $posicionX, 0, $anchoImagen, 25);
+    $pdf->Image($rutaLogo, $posicionX, 0, $anchoImagen, 15);
 
     //$pdf->Image($rutaLogo, 0, 0, 100, 25);
     $pdf->SetFont('Arial', 'B', 18);
