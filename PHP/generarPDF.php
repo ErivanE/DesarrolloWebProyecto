@@ -17,11 +17,13 @@ require "../vendor/autoload.php";
 $user = $_GET["user"];
 $idUsuario;
 $nombre;
+$numeroCompra;
 $usuario = $con->query("SELECT * FROM usuarios WHERE correo = '$user'");
 if ($usuario && $usuario->num_rows > 0) {
     $fila       = $usuario->fetch_assoc();
     $idUsuario  = $fila['id'];
     $nombre     = $fila['nombre'];
+    $numeroCompra = $fila['numeroCompra'];
 }
 //Datos Carrito
 
@@ -117,11 +119,10 @@ try {
     }
 
     // Envío del correo
-    $nCompraAnterior = mysqli_query($con, "SELECT numeroCompra from usuarios where id = '$user'");
-    $nCompraNuevo = $nCompraAnterior + 1;
+    $numeroCompraNuevo = $numeroCompra++;
     $mail->send();
-    echo 'El correo se envió correctamente. '.$nCompraAnterior.' nv:  '.$nCompraNuevo.'ggg';
-    $query = mysqli_query($con, "UPDATE usuarios SET numeroCompra =$nCompraNuevo WHERE id = '$user' ");
+    echo 'El correo se envió correctamente. '.$numeroCompra.' nv:  '.$numeroCompraNuevo.'ggg';
+    $query = mysqli_query($con, "UPDATE usuarios SET numeroCompra =$numeroCompraNuevo WHERE correo = '$user' ");
 } catch (Exception $e) {
     echo 'Error al enviar el correo: ' . $mail->ErrorInfo;
 }
