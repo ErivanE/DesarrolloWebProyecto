@@ -76,7 +76,7 @@ try {
         $pdf->Output($rutaArchivo, 'F');
 
         try { //try Mandar pdf a WebDav
-            $rutaWebdav = '/var/www/webdav/VirtualizacionWebDav/pdf'; 
+            $rutaWebdav = "/var/www/webdav/VirtualizacionWebDav/pdf/$archivo"; 
             $comando = "scp $rutaArchivo root@10.0.0.3:$rutaWebdav";
             exec($comando);
         } catch (Exception $e) {
