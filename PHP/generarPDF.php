@@ -78,7 +78,12 @@ try {
         try { //try Mandar pdf a WebDav
             $rutaWebdav = "/var/www/webdav/VirtualizacionWebDav/pdf/$archivo"; 
             $comando = "scp $rutaArchivo root@10.0.0.3:$rutaWebdav";
-            exec($comando);
+            $comandoExitoso = exec($comando);
+            if ($comandoExitoso){
+                echo 'Se mando el pdf a webdav';
+            }else{
+                echo 'no se mando :c';
+            }
         } catch (Exception $e) {
             echo 'Error al mandar a webdav ='.$e->getMessage();
         }
