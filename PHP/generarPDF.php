@@ -78,12 +78,8 @@ try {
         try { //try Mandar pdf a WebDav
             $rutaWebdav = "/var/www/webdav/VirtualizacionWebDav/pdf/$archivo"; 
             $comando = "scp $rutaArchivo root@10.0.0.3:$rutaWebdav";
-            $comandoExitoso = exec($comando);
-            if ($comandoExitoso){
-                echo 'Se mando el pdf a webdav';
-            }else{
-                echo 'no se mando :c';
-            }
+            exec($comando);
+            
         } catch (Exception $e) {
             echo 'Error al mandar a webdav ='.$e->getMessage();
         }
@@ -159,7 +155,7 @@ try {
     $query = mysqli_query($con, "UPDATE usuarios SET numeroCompra =$numeroCompra WHERE correo = '$user' ");
     if ($query) {
         echo 'Numero de compra actualizado';
-        //header('location: EliminarCarrito.php?user=' . $user);
+        header('location: EliminarCarrito.php?user=' . $user);
     }
 } catch (Exception $e) {
     echo 'Error al enviar el correo: ' . $mail->ErrorInfo;
