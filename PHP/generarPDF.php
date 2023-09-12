@@ -75,17 +75,20 @@ try {
         //$rutaArchivo = '../pdf/recibo.pdf';
         $pdf->Output($rutaArchivo, 'F');
 
-        try { //try Mandar pdf a WebDav
 
-            $rutaWebdav = "/var/www/webdav/VirtualizacionWebDav/pdf/$archivo"; 
+        ////////////////
+        // try { //try Mandar pdf a WebDav
+
+        //     $rutaWebdav = "/var/www/webdav/VirtualizacionWebDav/pdf/$archivo"; 
             
-            $comando = "scp ".escapeshellarg($rutaArchivo)." www-data@10.0.0.3:$rutaWebdav";
-            echo $comando;
-            exec($comando);
-            echo 'se mando al webdav';
-        } catch (Exception $e) {
-            echo 'Error al mandar a webdav ='.$e->getMessage();
-        }
+        //     $comando = "scp ".escapeshellarg($rutaArchivo)." www-data@10.0.0.3:$rutaWebdav";
+        //     echo $comando;
+        //     exec($comando);
+        //     echo 'se mando al webdav';
+        // } catch (Exception $e) {
+        //     echo 'Error al mandar a webdav ='.$e->getMessage();
+        // }
+            /////////////////////////
 
         // $webdavUrl = "http://10.0.0.3/VirtualizacionWebDav/pdf/$archivo";
         // // Inicializar cURL y configurar la solicitud WebDAV
