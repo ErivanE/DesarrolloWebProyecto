@@ -160,8 +160,8 @@ try {
     $mail->send();
     $query = mysqli_query($con, "UPDATE usuarios SET numeroCompra =$numeroCompra WHERE correo = '$user' ");
     if ($query) {
-        echo 'Numero de compra actualizado';
-        //header('location: EliminarCarrito.php?user=' . $user);
+        //echo 'Numero de compra actualizado';
+        header('location: EliminarCarrito.php?user=' . $user);
     }
 } catch (Exception $e) {
     echo 'Error al enviar el correo: ' . $mail->ErrorInfo;
