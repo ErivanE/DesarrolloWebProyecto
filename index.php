@@ -9,6 +9,7 @@ include 'PHP/conexion.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio</title>
+    <link rel="stylesheet" href="VistaUsuario/css/bootstrap.min.css">
     <link rel="stylesheet" href="VistaUsuario/css/navbar.css">
     <link rel="stylesheet" href="VistaUsuario/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -80,6 +81,7 @@ include 'PHP/conexion.php';
 
     </main>
     <!--FOOTER-->
+
     <footer class="footer-container">
         <div class="footer-column columna1">
             <p>Encuentranos en: </p>

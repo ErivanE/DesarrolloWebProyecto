@@ -1,8 +1,12 @@
 <?php
-    $server = "localhost";
-    $database = "kspgames";
-    $username = "ivan";
-    $password = "12345";
+$server = "localhost";
+$database = "kspgames";
 
-    $con = mysqli_connect($server, $username, $password, $database);
+#$username = "root";
+#$password = "";
+
+$username = "ivan";
+$password = "12345";
+
+$con = mysqli_connect($server, $username, $password, $database);
 ?>
