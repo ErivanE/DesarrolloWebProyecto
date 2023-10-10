@@ -24,7 +24,7 @@ $user = $_GET['user'];
             //<a href="carrito.php?user=".$user.""  class="nav-login-item">Carrito</a>
             
             //AQUI VA LA IP DE LA MV WEBDAV, en lugar de pedidos.php 
-            echo '<a href=192.168.42.224?user=' . $user . ' class="nav-login-item">Pedidos</a>';
+            echo '<a href="http://192.168.42.224?user=' . $user . '" class="nav-login-item">Pedidos</a>';
             ?>
 
         </div>
