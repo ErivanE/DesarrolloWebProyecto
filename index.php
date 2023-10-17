@@ -10,7 +10,6 @@ include 'PHP/conexion.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio</title>
     <link rel="stylesheet" href="VistaUsuario/css/bootstrap.min.css">
-    <link rel="stylesheet" href="VistaUsuario/css/navbar.css">
     <link rel="stylesheet" href="VistaUsuario/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,22 +18,48 @@ include 'PHP/conexion.php';
         integrity="sha512-KXmDlF1ri1m3+oQTxo2dPXHoqr/qndCS0fVwX6rD38eq8yzG0BZNA26DrpYToPENdzmsS2IAGU8AMr8NZlTjMQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+
 <body>
     <!--NAVBAR-->
-    <nav class="nav">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-moradito">
+        <div class="container-fluid">
+            <img src="img/icons/KSPGames.png" class="navbar-brand img-fluid" alt="Logo">
+            <!-- <a href="#" class="navbar-brand">KSPGAMES</a> -->
+            <button class="navbar-toggler m-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"
+                aria-controls="menu" aria-expanded="false" aria-label="Mostrar / Ocultar menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="navbar-nav me-auto mb-lg-0">
+                    <li class="nav-item"><a href="#" class="nav-link">Inicio</a></li>
+                    <li class="nav-item"><a href="VistaUsuario/html/productos.php" class="nav-link">Productos</a></li>
+                    <li class="nav-item"><a href="VistaUsuario/html/ubicacion.html" class="nav-link">Ubicacion</a></li>
+                    <li class="nav-item"><a href="VistaUsuario/html/contacto.html" class="nav-link">Contacto</a></li>
+                </ul>
+                <div>
+                    <a href="VistaUsuario/html/login.html" class="btn btn-outline-primary me-1">Ingresar</a>
+                    <a href="VistaUsuario/html/registro.html" class="btn btn-outline-secondary">Registrarse</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- <nav class="nav">
         <div class="nav-login-container">
             <img src="img/icons/KSPGames.png" alt="kspLogo">
             <p class="nav-login-item">|</p>
             <a href="#" class="nav-login-item">Inicio</a>
             <a href="VistaUsuario/html/productos.php" class="nav-login-item">Productos</a>
-            <a href="VistaUsuario/html/ubicacion.html" class="nav-login-item">Ubicacion</a>
-            <a href="VistaUsuario/html/contacto.html" class="nav-login-item">Contacto</a>
+            <a href="" class="nav-login-item">Ubicacion</a>
+            <a href="" class="nav-login-item">Contacto</a>
         </div>
         <div class="nav-login-container">
-            <a href="VistaUsuario/html/login.html" class="nav-login-item boton botonGris">Iniciar Sesion</a>
-            <a href="VistaUsuario/html/registro.html" class="nav-login-item boton botonAzul">Registrarse</a>
+            <a href="" class="nav-login-item boton botonGris">Iniciar Sesion</a>
+            <a href="" class="nav-login-item boton botonAzul">Registrarse</a>
         </div>
-    </nav>
+    </nav> -->
+
     <!--TITULO-->
     <section class="titulo-principal">
         <div class="parrafo">
@@ -49,6 +74,7 @@ include 'PHP/conexion.php';
         </div>
     </section>
     <main>
+
         <!--AGREGADOS RECIENTEMENTE-->
         <section class="agregados">
             <div class="apartado">
@@ -133,6 +159,8 @@ include 'PHP/conexion.php';
             </p>
         </div>
     </footer>
+
+    <script src="VistaUsuario/js/boostrap.min.js"></script>
 </body>
 
 </html>
