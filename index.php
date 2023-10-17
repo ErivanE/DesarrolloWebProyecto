@@ -44,65 +44,83 @@ include 'PHP/conexion.php';
         </div>
     </nav>
 
-
-    <!-- <nav class="nav">
-        <div class="nav-login-container">
-            <img src="img/icons/KSPGames.png" alt="kspLogo">
-            <p class="nav-login-item">|</p>
-            <a href="#" class="nav-login-item">Inicio</a>
-            <a href="VistaUsuario/html/productos.php" class="nav-login-item">Productos</a>
-            <a href="" class="nav-login-item">Ubicacion</a>
-            <a href="" class="nav-login-item">Contacto</a>
-        </div>
-        <div class="nav-login-container">
-            <a href="" class="nav-login-item boton botonGris">Iniciar Sesion</a>
-            <a href="" class="nav-login-item boton botonAzul">Registrarse</a>
-        </div>
-    </nav> -->
-
     <!--TITULO-->
-    <section class="titulo-principal">
-        <div class="parrafo">
-            <h1 id="inicio">KSP Games</h1>
-            <p>
-                Explora nuevos mundos, encuentra grandes juegos.<span> KSP Games</span>,
-                tu destino de entretenimiento interactivo.
-            </p>
-        </div>
-        <div class="parrafo-img">
-            <img src="img/controlIcon.jpg" alt="" width="250px" height="250px">
-        </div>
-    </section>
-    <main>
-
-        <!--AGREGADOS RECIENTEMENTE-->
-        <section class="agregados">
-            <div class="apartado">
-                <h2>Agregados Recientemente</h2>
-            </div>
-            <div>
-                <div class="agregados-container">
-                    <?php
-                    $query = "SELECT * FROM productos ORDER BY id DESC LIMIT 6";
-                    #$result = $con->query($query);
-                    $result = mysqli_query($con, $query);
-                    #$result = mysqli_query($con, $query);
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        #$nombre = $row['titulo'];
-                        #$url_img = $row['url_img'];
-                        //TARJETA
-                        echo '<div class="agregados-tarjeta">';
-                        echo '<a href="#">';
-                        echo '<img src= "img/productos/' . $row["url_img"] . '" width="200" height="300" alt="producto">';
-                        echo '</a>';
-                        echo '<p>' . $row['titulo'] . '</p>';
-                        echo '</div>';
-                    }
-                    ?>
-
+    <header class="masthead" style="background-image:radial-gradient(farthest-side,
+        #14112ea2, 
+        #14112eb8, 
+        #14112ec5, 
+        #14112E
+        ),
+        url('img/bioColum.jpg');">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 col-md-6 mt-5 mx-auto">
+                    <h1 class="h6 text-secondary">KSPGAMES</h1>
+                    <p class="text-white h1 text-start">Explora nuevos mundo, encuentra grandes juegos.
+                        <span class="text-naranjita">KSP Games</span>
+                        , tu destino de
+                        entretenimiento interactivo.
+                    </p>
+                </div>
+                <div class="col-12 col-md-6 mt-5 text-center">
+                    <img class="img-fluid rounded-circle mx-auto" src="img/controlIcon.jpg" width="250px" height="250px"
+                        alt="Control Icon">
                 </div>
             </div>
-        </section>
+        </div>
+    </header>
+
+    <!--AGREGADOS RECIENTEMENTE-->
+    <main class="container">
+        <div class="row mb-2">
+            <div class="col-12">
+                <h2 class="mt-5 text-white">Agregados Recientemente</h2>
+            </div>
+        </div>
+
+        <div class="row d-flex justify-content-around">
+            <div class="col-auto" style="width: 250px; height: 350px;">
+                <?php
+                    $query = "SELECT * FROM productos ORDER BY id DESC LIMIT 6";
+                    $result = mysqli_query($con, $query);
+                    while($row = mysqli_fetch_assoc($result)){
+                        echo '<div class="card">';
+                        echo '<img src="img/productos/'.$row["url_img"].'" alt="Producto">';
+                        echo '<a href="#" class="stretched-link"></a>';
+                        echo '</div>';
+                    }
+                ?>                
+            </div>
+        </div>
+    </main>
+
+    <section class="agregados">
+        <div class="apartado">
+            <h2>Agregados Recientemente</h2>
+        </div>
+        <div>
+            <div class="agregados-container">
+                <?php
+                $query = "SELECT * FROM productos ORDER BY id DESC LIMIT 6";
+                #$result = $con->query($query);
+                $result = mysqli_query($con, $query);
+                #$result = mysqli_query($con, $query);
+                while ($row = mysqli_fetch_assoc($result)) {
+                    #$nombre = $row['titulo'];
+                    #$url_img = $row['url_img'];
+                    //TARJETA
+                    echo '<div class="agregados-tarjeta">';
+                    echo '<a href="#">';
+                    echo '<img src= "img/productos/' . $row["url_img"] . '" width="200" height="300" alt="producto">';
+                    echo '</a>';
+                    echo '<p>' . $row['titulo'] . '</p>';
+                    echo '</div>';
+                }
+                ?>
+
+            </div>
+        </div>
+    </section>
 
 
     </main>
