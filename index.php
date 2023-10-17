@@ -94,45 +94,52 @@ include 'PHP/conexion.php';
         </div>
     </main>
 
-    <section class="agregados">
-        <div class="apartado">
-            <h2>Agregados Recientemente</h2>
-        </div>
-        <div>
-            <div class="agregados-container">
-                <?php
-                $query = "SELECT * FROM productos ORDER BY id DESC LIMIT 6";
-                #$result = $con->query($query);
-                $result = mysqli_query($con, $query);
-                #$result = mysqli_query($con, $query);
-                while ($row = mysqli_fetch_assoc($result)) {
-                    #$nombre = $row['titulo'];
-                    #$url_img = $row['url_img'];
-                    //TARJETA
-                    echo '<div class="agregados-tarjeta">';
-                    echo '<a href="#">';
-                    echo '<img src= "img/productos/' . $row["url_img"] . '" width="200" height="300" alt="producto">';
-                    echo '</a>';
-                    echo '<p>' . $row['titulo'] . '</p>';
-                    echo '</div>';
-                }
-                ?>
 
+    <!--FOOTER-->
+    <footer style="background: black;">
+        <div class="container text-white">
+            <div class="row pt-5">
+                <div class="col-12 col-md-4 mb-4">
+                    <h2>Encuentranos en:</h2>
+                    <a href="#"><img src="img/icons/discordIcon.png" alt="" class="img-fluid"></a>
+                    <a href="#"><img src="img/icons/facebookIcon.png" alt="" class="img-fluid"></a>
+                    <a href="#"><img src="img/icons/instaIcon.png" alt="" class="img-fluid"></a>
+                    <a href="#"><img src="img/icons/twitterIcon.png" alt="" class="img-fluid"></a>
+                </div>
+
+                <div class="col-12 col-md-4 mb-4">
+                    <h2>KSP Games</h2>
+                    <p>KSP Games es una pagina donde puedes comprar videojuegos en formato fisico, asi como tambien
+                        Consolas, controles accesorios y Ediciones de coleccion</p>
+                </div>
+
+                <div class="col-12 col-md-4 mb-4">
+                    <div class="row">
+                        <div class="col-12">
+                            <h2>Mision</h2>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit exercitationem aperiam
+                                quod praesentium amet voluptas perferendis mollitia sed.</p>
+                        </div>
+                        <div class="col-12">
+                            <h2>Vision</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores voluptates numquam
+                                voluptates illum atque eum est consequatur? Ad deleniti vel iusto suscipit. Eos numquam
+                                consequuntur voluptates culpa?</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
 
+    </footer>
 
-    </main>
-    <!--FOOTER-->
-
-    <footer class="footer-container">
+    <!-- <footer class="footer-container">
         <div class="footer-column columna1">
             <p>Encuentranos en: </p>
             <ul>
                 <li>
                     <a href="">
-                        <img src="img/icons/facebookIcon.png" alt="Facebook">
+                        <img src="" alt="Facebook">
                     </a>
                 </li>
                 <li>
@@ -176,7 +183,7 @@ include 'PHP/conexion.php';
                 aspernatur nihil omnis, quae praesentium.
             </p>
         </div>
-    </footer>
+    </footer> -->
 
     <script src="VistaUsuario/js/boostrap.min.js"></script>
 </body>
