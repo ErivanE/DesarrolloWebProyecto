@@ -48,6 +48,7 @@ include 'PHP/conexion.php';
             <img src="img/controlIcon.jpg" alt="" width="250px" height="250px">
         </div>
     </section>
+    
     <main>
         <!--AGREGADOS RECIENTEMENTE-->
         <section class="agregados">
