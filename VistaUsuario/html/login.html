@@ -1,100 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css">
+
     <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="../css/contacto.css">
     <link rel="stylesheet" href="../css/login.css">
     <title>KSP Registrar</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <!--NAVBAR-->
-    <nav class="nav">
-        <div class="nav-login-container">
-            <img src="../../img/icons/KSPGames.png" alt="kspLogo">
-            <p class="nav-login-item">|</p>
-            <a href="../../index.php"   class="nav-login-item">Inicio</a>
-            <a href="productos.php"     class="nav-login-item">Productos</a>
-            <a href="ubicacion.html"    class="nav-login-item">Ubicacion</a>
-            <a href="contacto.html"     class="nav-login-item">Contacto</a>
-        </div>
-        <div class="nav-login-container">
-            <a href="#"                 class="nav-login-item boton botonGris">Iniciar Sesion</a>
-            <a href="registro.html"     class="nav-login-item boton botonAzul">Registrarse</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-moradito">
+        <div class="container-fluid">
+            <img src="../../img/icons/KSPGames.png" class="navbar-brand img-fluid" alt="Logo">
+            <!-- <a href="#" class="navbar-brand">KSPGAMES</a> -->
+            <button class="navbar-toggler m-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"
+                aria-controls="menu" aria-expanded="false" aria-label="Mostrar / Ocultar menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="navbar-nav me-auto mb-lg-0">
+                    <li class="nav-item"><a href="../../index.php" class="nav-link">Inicio</a></li>
+                    <li class="nav-item"><a href="productos.php" class="nav-link">Productos</a></li>
+                    <li class="nav-item"><a href="ubicacion.html" class="nav-link">Ubicacion</a></li>
+                    <li class="nav-item"><a href="contacto.html" class="nav-link">Contacto</a></li>
+                </ul>
+                <div>
+                    <a href="#" class="btn btn-outline-primary me-1 disabled">Ingresar</a>
+                    <a href="registro.html" class="btn btn-outline-secondary">Registrarse</a>
+                </div>
+            </div>
         </div>
     </nav>
 
     <!--MAIN-->
-    <section id="login" class="agregados">
-      <div class="apartado">
-          <h2>Iniciar Sesion</h2>
-      </div>
-      <!--FORM-->
-      <div class="form-contacto">
-          <form action="../../PHP/opcionesUsuario.php" method="post">
-              <label for="correo">Correo</label>
-              <input type="email" name="correo" id="correo">
-              <label for="contra">Contraseña</label>
-              <input type="password" name="contrasena" id="contra">
+    <main class="container" style="background-image:radial-gradient(farthest-side,
+    #14112ea2, 
+    #14112eb8, 
+    #14112ec5, 
+    #14112E
+    ),
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/A_black_image.jpg/640px-A_black_image.jpg');">
+        <div class="row mt-5 justify-content-center text-white">
+            <div class="col-12">
+                <h2>Iniciar Sesion</h2>
+            </div>
+            <div class="col-12 col-md-6">
+                <form action="../../PHP/opcionesUsuario.php" method="post">
+                    <input type="text" placeholder="Correo" class="form-control mt-3">
+                    <input type="text" placeholder="Contraseña" class="form-control mt-3">
+                    <p class="text-muted">Iniciar Sesion como <a href="../../VistaAdmin/html/login.html" class="text-decoration-none text-naranjita">Administrador</a></p>
+                    <input type="submit" name="login" value="Enviar" class="btn btn-outline-primary mb-5">
+                </form>
+            </div>
+        </div>
+    </main>
+    <!--FOOTER-->
+    <footer style="background: black;">
+        <div class="container text-white mt-5">
+            <div class="row pt-5">
+                <div class="col-12 col-md-4 mb-4">
+                    <h2>Encuentranos en:</h2>
+                    <a href="#"><img src="../../img/icons/discordIcon.png" alt="" class="img-fluid"></a>
+                    <a href="#"><img src="../../img/icons/facebookIcon.png" alt="" class="img-fluid"></a>
+                    <a href="#"><img src="../../img/icons/instaIcon.png" alt="" class="img-fluid"></a>
+                    <a href="#"><img src="../../img/icons/twitterIcon.png" alt="" class="img-fluid"></a>
+                </div>
 
-              <p id="adminLogin">Iniciar sesion como <span><a href="../../VistaAdmin/html/login.html">Admin</a></span></p>
-              <input type="submit" name ="login" class="boton botonAzul botonForm" value="Enviar">
-          </form>
-      </div>
-  </section>
-  <!--FOOTER-->
-  <footer class="footer-container">
-    <div class="footer-column columna1">
-        <p>Encuentranos en:  </p>
-        <ul>
-            <li>
-                <a href="">
-                    <img src="../../img/icons/facebookIcon.png" alt="Facebook">
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    <img src="../../img/icons/twitterIcon.png" alt="Twitter">
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    <img src="../../img/icons/instaIcon.png" alt="Instagram">
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    <img src="../../img/icons/discordIcon.png" alt="Discord">
-                </a>
-            </li>
-        </ul>
-    </div>
-    <div class="footer-column columna2">
-        <h2>KSP Games</h2>
-        <p>
-            KSP Games es una pagina donde puedes comprar videojuegos en formato fisico, 
-            asi como tambien Consolas, controles, accesorios y Ediciones de coleccion
-        </p>
-        
-    </div>
-    <div class="footer-column columna2">
-        <h2>Mision</h2>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-            Corrupti in ipsum inventore, fugiat provident ex, possimus, 
-            aspernatur ut laboriosam nisi consequuntur et officia quaerat
-             id totam repellendus deleniti omnis numquam!
-            </p>
-        <h2>Vision</h2>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-            Assumenda repellendus odio officiis rem voluptatibus ipsa sapiente, 
-            error exercitationem quam doloremque distinctio quia porro, aut nesciunt 
-            aspernatur nihil omnis, quae praesentium.
-        </p>
-    </div>
-  </footer>
-  </body>
+                <div class="col-12 col-md-4 mb-4">
+                    <h2>KSP Games</h2>
+                    <p>KSP Games es una pagina donde puedes comprar videojuegos en formato fisico, asi como tambien
+                        Consolas, controles accesorios y Ediciones de coleccion</p>
+                </div>
+
+                <div class="col-12 col-md-4 mb-4">
+                    <div class="row">
+                        <div class="col-12">
+                            <h2>Mision</h2>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit exercitationem aperiam
+                                quod praesentium amet voluptas perferendis mollitia sed.</p>
+                        </div>
+                        <div class="col-12">
+                            <h2>Vision</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores voluptates numquam
+                                voluptates illum atque eum est consequatur? Ad deleniti vel iusto suscipit. Eos numquam
+                                consequuntur voluptates culpa?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
 </html>

@@ -17,7 +17,7 @@ include 'PHP/conexion.php';
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
         integrity="sha512-KXmDlF1ri1m3+oQTxo2dPXHoqr/qndCS0fVwX6rD38eq8yzG0BZNA26DrpYToPENdzmsS2IAGU8AMr8NZlTjMQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+</head>
 
 <body>
     <!--NAVBAR-->
@@ -31,7 +31,7 @@ include 'PHP/conexion.php';
             </button>
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="navbar-nav me-auto mb-lg-0">
-                    <li class="nav-item"><a href="#" class="nav-link">Inicio</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link disabled">Inicio</a></li>
                     <li class="nav-item"><a href="VistaUsuario/html/productos.php" class="nav-link">Productos</a></li>
                     <li class="nav-item"><a href="VistaUsuario/html/ubicacion.html" class="nav-link">Ubicacion</a></li>
                     <li class="nav-item"><a href="VistaUsuario/html/contacto.html" class="nav-link">Contacto</a></li>
@@ -39,7 +39,6 @@ include 'PHP/conexion.php';
                 <div>
                     <a href="VistaUsuario/html/login.html" class="btn btn-outline-primary me-1">Ingresar</a>
                     <a href="VistaUsuario/html/registro.html" class="btn btn-outline-secondary">Registrarse</a>
-                    >>>>>>> 707660bc60bbcc414274cc07da7cb89b8086d55c
                 </div>
             </div>
         </div>
@@ -79,19 +78,19 @@ include 'PHP/conexion.php';
             </div>
         </div>
 
-        <div class="row d-flex justify-content-around">
-            <div class="col-auto" style="width: 250px; height: 350px;">
-                <?php
-                $query = "SELECT * FROM productos ORDER BY id DESC LIMIT 6";
-                $result = mysqli_query($con, $query);
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo '<div class="card">';
-                    echo '<img src="img/productos/' . $row["url_img"] . '" alt="Producto">';
-                    echo '<a href="#" class="stretched-link"></a>';
-                    echo '</div>';
-                }
-                ?>
-            </div>
+        <div class="row">
+            <?php
+            $query = "SELECT * FROM productos ORDER BY id DESC LIMIT 5";
+            $result = mysqli_query($con, $query);
+            while ($row = mysqli_fetch_assoc($result)) {
+                echo '<div class = "col-auto" style = "width: 250px; height: 350px;">';
+                echo '<div class="card">';
+                echo '<img src="img/productos/' . $row["url_img"] . '" alt="Producto">';
+                echo '<a href="#" class="stretched-link"></a>';
+                echo '</div>';
+                echo '</div>';
+            }
+            ?>
         </div>
     </main>
 
@@ -131,60 +130,7 @@ include 'PHP/conexion.php';
                 </div>
             </div>
         </div>
-
     </footer>
-
-    <!-- <footer class="footer-container">
-        <div class="footer-column columna1">
-            <p>Encuentranos en: </p>
-            <ul>
-                <li>
-                    <a href="">
-                        <img src="" alt="Facebook">
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <img src="img/icons/twitterIcon.png" alt="Twitter">
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <img src="img/icons/instaIcon.png" alt="Instagram">
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <img src="img/icons/discordIcon.png" alt="Discord">
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div class="footer-column columna2">
-            <h2>KSP Games</h2>
-            <p>
-                KSP Games es una pagina donde puedes comprar videojuegos en formato fisico,
-                asi como tambien Consolas, controles, accesorios y Ediciones de coleccion
-            </p>
-
-        </div>
-        <div class="footer-column columna2">
-            <h2>Mision</h2>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Corrupti in ipsum inventore, fugiat provident ex, possimus,
-                aspernatur ut laboriosam nisi consequuntur et officia quaerat
-                id totam repellendus deleniti omnis numquam!
-            </p>
-            <h2>Vision</h2>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Assumenda repellendus odio officiis rem voluptatibus ipsa sapiente,
-                error exercitationem quam doloremque distinctio quia porro, aut nesciunt
-                aspernatur nihil omnis, quae praesentium.
-            </p>
-        </div>
-    </footer> -->
 
     <script src="VistaUsuario/js/boostrap.min.js"></script>
 </body>
