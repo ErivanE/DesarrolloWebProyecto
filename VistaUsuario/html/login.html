@@ -7,10 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/style.css">
-
-    <link rel="stylesheet" href="../css/navbar.css">
-    <link rel="stylesheet" href="../css/contacto.css">
-    <link rel="stylesheet" href="../css/login.css">
     <title>KSP Registrar</title>
 </head>
 
@@ -53,8 +49,8 @@
             </div>
             <div class="col-12 col-md-6">
                 <form action="../../PHP/opcionesUsuario.php" method="post">
-                    <input type="text" placeholder="Correo" class="form-control mt-3">
-                    <input type="text" placeholder="Contraseña" class="form-control mt-3">
+                    <input type="text" placeholder="Correo" name="correo" id="correo" class="form-control mt-3">
+                    <input type="text" placeholder="Contraseña" name="contra" id="contra" class="form-control mt-3">
                     <p class="text-muted">Iniciar Sesion como <a href="../../VistaAdmin/html/login.html" class="text-decoration-none text-naranjita">Administrador</a></p>
                     <input type="submit" name="login" value="Enviar" class="btn btn-outline-primary mb-5">
                 </form>
@@ -97,6 +93,8 @@
             </div>
         </div>
     </footer>
+
+    <script src="VistaUsuario/js/boostrap.min.js"></script>
 </body>
 
 </html>

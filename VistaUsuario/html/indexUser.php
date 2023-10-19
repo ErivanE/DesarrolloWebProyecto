@@ -129,6 +129,8 @@ $user = $_GET['user'];
             </p>
         </div>
     </footer>
+
+    <script src="VistaUsuario/js/boostrap.min.js"></script>
 </body>
 
 </html>

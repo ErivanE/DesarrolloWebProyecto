@@ -113,5 +113,6 @@
         </div>
     </div>
 
+    <script src="VistaUsuario/js/boostrap.min.js"></script>
 </body>
 </html>

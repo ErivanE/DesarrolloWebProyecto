@@ -119,6 +119,8 @@ include '../../PHP/conexion.php'
             </div>
         </div>
     </footer>
+
+    <script src="VistaUsuario/js/boostrap.min.js"></script>
 </body>
 
 </html>
