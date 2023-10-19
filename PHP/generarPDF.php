@@ -74,8 +74,8 @@ try {
         $rutaArchivo = "../pdf/$archivo";
 
         //GUARDAR EN HOME/PDF
-        // $rutaArchivohome = "/home/pdf/$archivo";
-        // $pdf->Output($rutaArchivohome, 'F');
+        $rutaArchivohome = "/home/pdf/$archivo";
+        $pdf->Output($rutaArchivohome, 'F');
         
         //$rutaArchivo = '../pdf/recibo.pdf';
         $pdf->Output($rutaArchivo, 'F');
