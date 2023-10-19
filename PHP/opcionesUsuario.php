@@ -10,7 +10,8 @@ $contrasena = $_POST['contrasena'] ?? NULL;
 
 
 if (isset($_POST['agregar'])) {
-    $query = "INSERT INTO usuarios (id, nombre, correo, direccion, cp, contrasena, numeroCompra) VALUES(0,'$nombre','$correo','$direccion','$cp','$contrasena',1)";
+    $query = "INSERT INTO usuarios (id, nombre, correo, direccion, cp, contrasena, numeroCompra) 
+                VALUES(0,'$nombre','$correo','$direccion','$cp','$contrasena',1)";
     $sql = mysqli_query($con, $query);
 
     if ($sql) {
@@ -43,7 +44,9 @@ if (isset($_POST['agregar'])) {
     }
 } else
     if (isset($_POST['login'])) {
-        $consulta = $con->query("SELECT * from usuarios WHERE correo = '$correo' and contrasena = '$contrasena'");
+        $consulta = $con->query("SELECT * from usuarios 
+                                    WHERE correo = '$correo' 
+                                        and contrasena = '$contrasena'");
         $nr = mysqli_num_rows($consulta);
 
         if ($nr == 1) {
