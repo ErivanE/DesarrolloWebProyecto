@@ -1,7 +1,7 @@
 <?php
 include '../../PHP/conexion.php';
 $user = $_GET['user'];
-$id ?? null;
+$id=0;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +18,7 @@ $id ?? null;
 <body class="bg-light">
     <?php
     $query = "SELECT id FROM usuarios WHERE correo = '$user'";
-    $result = mysqli_query($conn, $query);
+    $result = mysqli_query($con, $query);
     if ($result) {
         if ($result->num_rows > 0) {
             $fila = $result->fetch_assoc();

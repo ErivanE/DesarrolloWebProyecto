@@ -1,7 +1,7 @@
 <?php
 include '../../PHP/conexion.php';
 $user = $_GET['user'];
-$id?? null;
+$id=0;
 ?>
 <!DOCTYPE html>
 <html lang="en">
