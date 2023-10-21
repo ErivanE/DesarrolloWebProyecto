@@ -85,7 +85,7 @@ $user = $_GET['user'];
                                     <td>
                                         <?php echo $row["Descripcion"] ?? null ?>
                                     </td>
-                                    <td><a href="../../PHP/carritoEliminar.php?user=<?php echo $row["user"]?>var=<?php echo $row["id"]?>">Eliminar</a>
+                                    <td><a href="../../PHP/carritoEliminar.php?user=<?php echo $user?>var=<?php echo $row["id"]?>">Eliminar</a>
                                     </td>
                                 </tr>
                                 <?php
