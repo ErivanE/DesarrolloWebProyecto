@@ -4,7 +4,7 @@ body {
 
 .masthead {
     background-size: cover;
-    min-height: 50vh;
+    min-height: 60vh;
     position: relative;
     color: white;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
@@ -26,4 +26,12 @@ body {
 
 .text-naranjita {
     color: #c44a3e;
+}
+.text-frutilupi{
+    color: #1fbd93;
+}
+.imagen-normalizada{
+    width: 100%;
+	height: 300px;
+	object-fit: cover;
 }

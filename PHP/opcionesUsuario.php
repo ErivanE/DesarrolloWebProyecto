@@ -55,11 +55,12 @@ if (isset($_POST['agregar'])) {
             // $correo = $usuario['correo'];
             // $direccion = $usuario['direccion'];
             // $cp = $usuario['cp'];
-
-            $_SESSION['id_usuario'] = $usuario['id']; // Guardar el ID de usuario en una variable de sesión
-            $_SESSION['nombre'] = $nombre;
-            $_SESSION['correo'] = $correo;
-            $_SESSION['cp'] = $cp;
+            
+            // Guardar el ID de usuario en una variable de sesión
+            // $_SESSION['id_usuario'] = $usuario['id']; 
+            // $_SESSION['nombre'] = $nombre;
+            // $_SESSION['correo'] = $correo;
+            // $_SESSION['cp'] = $cp;
 
             header('location: ../VistaUsuario/html/indexUser.php?user=' . $correo . '');
         } else {

@@ -11,144 +11,136 @@ $user = $_GET['user'];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrito</title>
-    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/style.css">
-    <style>
-        table {
-            background-color: white;
-            margin: 2rem;
-        }
-
-        tr,
-        td,
-        table {
-            border: 1px solid #000;
-            border-collapse: collapse;
-        }
-
-        h1 {
-            color: black;
-            padding: 2rem;
-        }
-    </style>
 </head>
 
-<body>
+<body class="bg-light">
     <!--NAVBAR-->
-    <nav class="nav">
-        <div class="nav-login-container">
-            <img src="../../img/icons/KSPGames.png" alt="kspLogo">
-            <p class="nav-login-item">|</p>
-            <?php
-            echo '<a href="indexUser.php?user=' . $user . '" class="nav-login-item">Productos</a>';
-            echo '<a href="carrito.php?user=' . $user . '" class="nav-login-item">Carrito</a>';
-            ?>
-        </div>
-        <div class="nav-login-container">
-            <?php
-            echo '<p class="nav-login-item">' . $user . '</p>';
-            ?>
-            <a href="../../index.php" class="nav-login-item boton botonAzul">Salir</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-moradito">
+        <div class="container-fluid">
+            <img src="../../img/icons/KSPGames.png" class="navbar-brand img-fluid" alt="Logo">
+            <!-- <a href="#" class="navbar-brand">KSPGAMES</a> -->
+            <button class="navbar-toggler m-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"
+                aria-controls="menu" aria-expanded="false" aria-label="Mostrar / Ocultar menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="navbar-nav me-auto mb-lg-0">
+                    <li class="nav-item"><a href="indexUser.php?user=<?php echo $user ?>" class="nav-link">Productos</a>
+                    </li>
+                    <li class="nav-item"><a href="" class="nav-link disabled">Carrito</a>
+                    </li>
+                    <li class="nav-item"><a href="http://10.0.33.3?user=<?php echo $user ?> "
+                            class="nav-link">Pedidos</a></li>
+                </ul>
+                <div>
+                    <a href="login.html" class="btn btn-outline-secondary me-1 disabled">
+                        <?php echo $user ?>
+                    </a>
+                    <a href="../../index.php" class="btn btn-outline-primary">Salir</a>
+                </div>
+            </div>
         </div>
     </nav>
     <!--main-->
-    <section class="fondo-titulo-alterado">
-        <div class="contenedor">
+    <main class="container bg-white rounded-3">
+        <div class="row g-3 my-5 py-5">
+            <div class="col-12 col-lg-8 rounded-2 table-responsive">
+                <h2>Resumen de la compra</h2>
+                <table class="tabla table-striped table-hover table-sm table-bordered">
+                    <thead>
+                        <tr class="table-dark"></tr>
+                        <th>Imagen</th>
+                        <th>Producto</th>
+                        <th>Consola</th>
+                        <th>Precio</th>
+                        <th>Descripcion</th>
+                        <th>Opciones</th>
+                        </tr>
+                    </thead>
 
-            <h1>Carrito de compras</h1>
-            <table style="width: 80%;" class="caja ">
-                <thead>
-                    <th>Id</th>
-                    <th>Producto</th>
-                    <th>Precio</th>
-                    <th>Foto</th>
-                    <th>Opciones</th>
-                </thead>
-                <tbody>
-                    <?php
-                    $array = [];
-                    $query = "SELECT id, id_producto, nombre_usuario, nombre_producto, precio, url_img FROM carrito WHERE nombre_usuario = '$user'";
-                    $result = $con->query($query);
-                    if ($result->num_rows > 0) {
-                        while ($row = $result->fetch_assoc()) {
-                            array_push($array, $row);
-                            echo "<tr>";
-                            echo "<td>" . $row["id_producto"] . "</td>";
-                            echo "<td>" . $row["nombre_producto"] . "</td>";
-                            echo "<td id='precio'>" . $row["precio"] . "</td>";
-                            echo "<td><img src ='../../img/productos/" . $row['url_img'] . "' alt = 'Imagen del Producto' width='100' height='100'></td>";
-                            //OPCION ELIMIINAR 
-                            echo "<td><a href='../../PHP/carritoEliminar.php?var=" . $row['id'] . "&user=$user'>Eliminar</a></td>";
-                            echo "</tr>";
+                    <tbody>
+                        <?php
+                        $array = [];
+                        $query = "SELECT id, id_producto, nombre_usuario, nombre_producto, precio, url_img FROM carrito WHERE nombre_usuario = '$user'";
+                        $result = $con->query($query);
+                        if ($result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
+                                array_push($array, $row);
+                                ?>
+                                <tr>
+                                    <td><img class="img-thumbnail"
+                                            src="../../img/productos/<?php echo $row["url_img"] ?? null ?>" alt="Img Producto"
+                                            width="100" height="100"></td>
+                                    <td>
+                                        <?php echo $row["nombre_producto"] ?? null ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $row["consola"] ?? null ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $row["precio"] ?? null ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $row["Descripcion"] ?? null ?>
+                                    </td>
+                                    <td><a href="../../PHP/carritoEliminar.php?var=<?php $row["id"] ?? null ?>">Eliminar</a>
+                                    </td>
+                                </tr>
+                                <?php
+                            }
                         }
-                    }
-                    ?>
-                </tbody>
-            </table>
+                        ?>
+                    </tbody>
+                </table>
+            </div>
 
-            <div>
-                <?php
-                echo '<form action = "../../PHP/generarPDF.php?user=' . $user . '" method="post">';
-                echo '<input type="submit" value="Comprar">';
-                echo '</form>';
-                ?>
+            <div class="col-12 col-lg-4 ">
+                <h2>Finalizar Compra</h2>
+                <form action="../../PHP/generarPDF.php?user=<?php echo $user ?>" method="post" class="mt-5 text-center">
+                        <input type="submit" class="btn btn-success btn-lg w-100" value="Comprar">
+                </form>
             </div>
         </div>
-    </section>
+    </main>
     <!--FOOTER-->
-    <footer class="footer-container">
-        <div class="footer-column columna1">
-            <p>Encuentranos en: </p>
-            <ul>
-                <li>
-                    <a href="">
-                        <img src="../../img/icons/facebookIcon.png" alt="Facebook">
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <img src="../../img/icons/twitterIcon.png" alt="Twitter">
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <img src="../../img/icons/instaIcon.png" alt="Instagram">
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <img src="../../img/icons/discordIcon.png" alt="Discord">
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div class="footer-column columna2">
-            <h2>KSP Games</h2>
-            <p>
-                KSP Games es una pagina donde puedes comprar videojuegos en formato fisico,
-                asi como tambien Consolas, controles, accesorios y Ediciones de coleccion
-            </p>
+    <footer style="background: black;">
+        <div class="container text-white">
+            <div class="row pt-5">
+                <div class="col-12 col-md-4 mb-4">
+                    <h2>Encuentranos en:</h2>
+                    <a href="#"><img src="../../img/icons/discordIcon.png" alt="" class="img-fluid"></a>
+                    <a href="#"><img src="../../img/icons/facebookIcon.png" alt="" class="img-fluid"></a>
+                    <a href="#"><img src="../../img/icons/instaIcon.png" alt="" class="img-fluid"></a>
+                    <a href="#"><img src="../../img/icons/twitterIcon.png" alt="" class="img-fluid"></a>
+                </div>
 
-        </div>
-        <div class="footer-column columna2">
-            <h2>Mision</h2>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Corrupti in ipsum inventore, fugiat provident ex, possimus,
-                aspernatur ut laboriosam nisi consequuntur et officia quaerat
-                id totam repellendus deleniti omnis numquam!
-            </p>
-            <h2>Vision</h2>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Assumenda repellendus odio officiis rem voluptatibus ipsa sapiente,
-                error exercitationem quam doloremque distinctio quia porro, aut nesciunt
-                aspernatur nihil omnis, quae praesentium.
-            </p>
+                <div class="col-12 col-md-4 mb-4">
+                    <h2>KSP Games</h2>
+                    <p>KSP Games es una pagina donde puedes comprar videojuegos en formato fisico, asi como tambien
+                        Consolas, controles accesorios y Ediciones de coleccion</p>
+                </div>
+
+                <div class="col-12 col-md-4 mb-4">
+                    <div class="row">
+                        <div class="col-12">
+                            <h2>Mision</h2>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit exercitationem aperiam
+                                quod praesentium amet voluptas perferendis mollitia sed.</p>
+                        </div>
+                        <div class="col-12">
+                            <h2>Vision</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores voluptates numquam
+                                voluptates illum atque eum est consequatur? Ad deleniti vel iusto suscipit. Eos numquam
+                                consequuntur voluptates culpa?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
 
     <script src="VistaUsuario/js/boostrap.min.js"></script>
 </body>
-
 </html>

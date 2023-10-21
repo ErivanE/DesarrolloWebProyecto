@@ -16,7 +16,7 @@ include '../../PHP/conexion.php'
     
 </head>
 
-<body>
+<body style="background-color: white;">
     <!--NAVBAR-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-moradito">
         <div class="container-fluid">
@@ -42,7 +42,7 @@ include '../../PHP/conexion.php'
     </nav>
 
     <main class="container">
-        <div class="row mt-5">
+        <div class="row row-cols-1 row-cols-md-3 row-cols-lg-6 g-3 mt-5">
             <!-- tarjeta -->
             <!-- <div class="col-2">
                 <div class="card bg-dark text-white">
@@ -61,20 +61,18 @@ include '../../PHP/conexion.php'
 
             if($result -> num_rows > 0){
                 while($row = $result -> fetch_assoc()){
-                    echo '<div class="col-2 mb-2 " >';
-                    echo '<div class="card bg-dark text-white">';
-                    #IMAGEN
-                    echo '<img src="../../img/productos/'.$row["url_img"].'" class="card-img-top img-fluid" alt="">';
-                    echo '<div class="card-body">';
-                    #TITULO
-                    echo '<h5 class="card-title">'.$row["titulo"].'</h5>';
-                    #PLATAFORMA
-                    #echo '<h6 class="card-subtitle text-muted mb-2">'.$row[""].'</h6>';
-                    #PRECIO
-                    echo '<a href="login.html" class="btn btn-outline-primary">$'.$row["precio"].'</a>';
-                    echo '</div>';
-                    echo '</div>';
-                    echo '</div>';
+                    ?>
+                    <div class="col">
+                        <div class="card shadow">
+                            <img src="../../img/productos/<?php echo $row["url_img"]?>" class="card-img-top img-fluid imagen-normalizada" alt="">
+                            <div class="card-body">
+                                <h5 class="card-title"><?php echo $row["titulo"]?></h5>
+                                <a href="login.html" class="btn btn-outline-primary"><?php echo $row["precio"]?></a>
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                    
                 }
             }
             ?>
