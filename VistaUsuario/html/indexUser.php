@@ -31,7 +31,7 @@ $user = $_GET['user'];
                     <li class="nav-item"><a href="#" class="nav-link disabled">Productos</a></li>
                     <li class="nav-item"><a href="carrito.php?user=<?php echo $user ?>" class="nav-link">Carrito</a>
                     </li>
-                    <li class="nav-item"><a href="http://10.0.33.3?user=<?php echo $user ?> "
+                    <li class="nav-item"><a href="http://10.0.33.3/VirtualizacionWebDav/index.php?user=<?php echo $user ?> "
                             class="nav-link">Pedidos</a></li>
                 </ul>
                 <div>

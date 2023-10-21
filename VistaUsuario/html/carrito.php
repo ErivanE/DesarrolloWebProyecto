@@ -31,7 +31,7 @@ $user = $_GET['user'];
                     </li>
                     <li class="nav-item"><a href="" class="nav-link disabled">Carrito</a>
                     </li>
-                    <li class="nav-item"><a href="http://10.0.33.3?user=<?php echo $user ?> "
+                    <li class="nav-item"><a href="http://10.0.33.3/VirtualizacionWebDav/index.php?user=<?php echo $user ?> "
                             class="nav-link">Pedidos</a></li>
                 </ul>
                 <div>
@@ -85,7 +85,7 @@ $user = $_GET['user'];
                                     <td>
                                         <?php echo $row["Descripcion"] ?? null ?>
                                     </td>
-                                    <td><a href="../../PHP/carritoEliminar.php?user=<?php echo $user?>var=<?php echo $row["id"]?>">Eliminar</a>
+                                    <td><a href="../../PHP/carritoEliminar.php?user=<?php echo $user?>&var=<?php echo $row["id"]?>">Eliminar</a>
                                     </td>
                                 </tr>
                                 <?php
