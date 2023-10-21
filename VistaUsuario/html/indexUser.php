@@ -1,6 +1,7 @@
 <?php
 include '../../PHP/conexion.php';
 $user = $_GET['user'];
+$id?? null;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,6 +18,16 @@ $user = $_GET['user'];
 </head>
 
 <body>
+<?php
+    $query = "SELECT id FROM usuarios WHERE correo = '$user'";
+    $result = mysqli_query($conn, $query);
+    if ($result) {
+        if ($result->num_rows > 0) {
+            $fila = $result->fetch_assoc();
+            $id = $fila["id"];
+        }
+    }
+    ?>
     <!--NAVBAR-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-moradito">
         <div class="container-fluid">
@@ -31,7 +42,7 @@ $user = $_GET['user'];
                     <li class="nav-item"><a href="#" class="nav-link disabled">Productos</a></li>
                     <li class="nav-item"><a href="carrito.php?user=<?php echo $user ?>" class="nav-link">Carrito</a>
                     </li>
-                    <li class="nav-item"><a href="http://10.0.33.3/VirtualizacionWebDav/index.php?user=<?php echo $user ?> "
+                    <li class="nav-item"><a href="http://10.0.33.3/VirtualizacionWebDav/index.php?id=<?php echo $id ?> "
                             class="nav-link">Pedidos</a></li>
                 </ul>
                 <div>

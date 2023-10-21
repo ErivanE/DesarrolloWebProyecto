@@ -1,7 +1,7 @@
 <?php
 include '../../PHP/conexion.php';
 $user = $_GET['user'];
-
+$id ?? null;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,6 +16,16 @@ $user = $_GET['user'];
 </head>
 
 <body class="bg-light">
+    <?php
+    $query = "SELECT id FROM usuarios WHERE correo = '$user'";
+    $result = mysqli_query($conn, $query);
+    if ($result) {
+        if ($result->num_rows > 0) {
+            $fila = $result->fetch_assoc();
+            $id = $fila["id"];
+        }
+    }
+    ?>
     <!--NAVBAR-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-moradito">
         <div class="container-fluid">
@@ -31,7 +41,8 @@ $user = $_GET['user'];
                     </li>
                     <li class="nav-item"><a href="" class="nav-link disabled">Carrito</a>
                     </li>
-                    <li class="nav-item"><a href="http://10.0.33.3/VirtualizacionWebDav/index.php?user=<?php echo $user ?> "
+                    <li class="nav-item"><a
+                            href="http://10.0.33.3/VirtualizacionWebDav/index.php?id=<?php echo $id ?> "
                             class="nav-link">Pedidos</a></li>
                 </ul>
                 <div>
@@ -85,7 +96,8 @@ $user = $_GET['user'];
                                     <td>
                                         <?php echo $row["Descripcion"] ?? null ?>
                                     </td>
-                                    <td><a href="../../PHP/carritoEliminar.php?user=<?php echo $user?>&var=<?php echo $row["id"]?>">Eliminar</a>
+                                    <td><a
+                                            href="../../PHP/carritoEliminar.php?user=<?php echo $user ?>&var=<?php echo $row["id"] ?>">Eliminar</a>
                                     </td>
                                 </tr>
                                 <?php
@@ -99,7 +111,7 @@ $user = $_GET['user'];
             <div class="col-12 col-lg-4 ">
                 <h2>Finalizar Compra</h2>
                 <form action="../../PHP/generarPDF.php?user=<?php echo $user ?>" method="post" class="mt-5 text-center">
-                        <input type="submit" class="btn btn-success btn-lg w-100" value="Comprar">
+                    <input type="submit" class="btn btn-success btn-lg w-100" value="Comprar">
                 </form>
             </div>
         </div>
@@ -143,4 +155,5 @@ $user = $_GET['user'];
 
     <script src="VistaUsuario/js/boostrap.min.js"></script>
 </body>
+
 </html>
