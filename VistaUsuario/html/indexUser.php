@@ -20,7 +20,7 @@ $id=0;
 <body>
 <?php
     $query = "SELECT id FROM usuarios WHERE correo = '$user'";
-    $result = mysqli_query($conn, $query);
+    $result = mysqli_query($con, $query);
     if ($result) {
         if ($result->num_rows > 0) {
             $fila = $result->fetch_assoc();
