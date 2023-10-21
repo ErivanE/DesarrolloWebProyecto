@@ -70,7 +70,7 @@ try {
         //code...
         //Guardar PDF
         //$numero = rand(1,50);
-        $archivo = "recibo$idUsuario$numeroCompra.pdf";
+        $archivo = "recibo$user$numeroCompra.pdf";
         $rutaArchivo = "../pdf/$archivo";
 
         //GUARDAR EN HOME/PDF
