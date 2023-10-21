@@ -1,6 +1,7 @@
 <?php
     //Eliminar carrito
     include 'conexion.php';
+    
     $a = $_GET["var"];
     $user = $_GET['user'];
     $borrar = $con ->query("DELETE FROM carrito WHERE id = '$a'");
