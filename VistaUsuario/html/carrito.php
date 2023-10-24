@@ -42,7 +42,7 @@ $id=0;
                     <li class="nav-item"><a href="" class="nav-link disabled">Carrito</a>
                     </li>
                     <li class="nav-item"><a
-                            href="http://www.kspgames.com/VirtualizacionWebDav/index.php?user=<?php echo $user?>&id=<?php echo $id ?> "
+                            href="http://www.kspgames.com.webdav/VirtualizacionWebDav/index.php?user=<?php echo $user?>&id=<?php echo $id ?> "
                             class="nav-link">Pedidos</a></li>
                 </ul>
                 <div>
